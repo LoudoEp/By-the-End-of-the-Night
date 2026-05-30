@@ -9,6 +9,12 @@ transform goodsize:
 
 ################################################################################
 
+### VARIABLES ###
+
+default pov = "anna"
+
+################################################################################
+
 ### FEDERICO ###
 
 define F = Character(_("Federico"), color ="#fff", what_prefix='"', what_suffix='"')
@@ -44,6 +50,11 @@ define MCA = Character(_("Anna"), color ="#fff", what_prefix='"', what_suffix='"
 
 layeredimage ann:
     zoom 0.3 xzoom -1.0
+    group body:
+        attribute base default:
+            "images/Anna/Base.png"
+        attribute open:
+            "images/Anna/Open.png"
     group expressions:
         attribute neutral default:
             "images/Anna/Neutral.png"
@@ -57,11 +68,6 @@ layeredimage ann:
             "images/Anna/Mad.png"
         attribute vulnerable:
             "images/Anna/Vulnerable.png"
-    group body:
-        attribute base default:
-            "images/Anna/Base.png"
-        attribute open:
-            "images/Anna/Open.png"
 
 image side ann = LayeredImageProxy("ann")
 
@@ -119,6 +125,8 @@ label start:
     A "Once you add a story, pictures, and music, you can release it to the world!"
 
     show rai mad meee at center
+
+    $ pov = "fede"
 
     "."
 
