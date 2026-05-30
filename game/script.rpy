@@ -21,7 +21,12 @@ define F = Character(_("Federico"), color ="#fff", what_prefix='"', what_suffix=
 define MCF = Character(_("Federico"), color ="#fff", what_prefix='"', what_suffix='"', image="fed")
 
 layeredimage fed:
-    zoom 0.3
+    zoom 0.45 yoffset 550
+    group body:
+        attribute base default:
+            "images/Federico/Base.png"
+        attribute meee:
+            "images/Federico/Meee.png"
     group expressions:
         attribute neutral default:
             "images/Federico/Neutral.png"
@@ -35,11 +40,6 @@ layeredimage fed:
             "images/Federico/Happy.png"
         attribute mad:
             "images/Federico/Mad.png"
-    group body:
-        attribute base default:
-            "images/Federico/Base.png"
-        attribute meee:
-            "images/Federico/Meee.png"
 
 image side fed = LayeredImageProxy("fed")
 
@@ -49,12 +49,14 @@ define A = Character(_("Anna"), color ="#fff", what_prefix='"', what_suffix='"')
 define MCA = Character(_("Anna"), color ="#fff", what_prefix='"', what_suffix='"', image="ann")
 
 layeredimage ann:
-    zoom 0.3 xzoom -1.0
+    xzoom -1.0 zoom 0.45 yoffset 550
     group body:
         attribute base default:
             "images/Anna/Base.png"
         attribute open:
             "images/Anna/Open.png"
+        attribute side:
+            "images/Anna/Side.png"
     group expressions:
         attribute neutral default:
             "images/Anna/Neutral.png"
@@ -74,10 +76,15 @@ image side ann = LayeredImageProxy("ann")
 ### RAIMONDO ###
 
 define R = Character(_("Raimondo"), color ="#fff", what_prefix='"', what_suffix='"')
-define MCR = Character(_("Anna"), color ="#fff", what_prefix='"', what_suffix='"', image="rai")
+define MCR = Character(_("Raimondo"), color ="#fff", what_prefix='"', what_suffix='"', image="pastrai")
 
 layeredimage rai:
-    zoom 0.3
+    zoom 0.45 yoffset 550
+    group body:
+        attribute base default:
+            "images/Raimondo/Base.png"
+        attribute meee:
+            "images/Raimondo/Meee.png"
     group expressions:
         attribute neutral default:
             "images/Raimondo/Neutral.png"
@@ -91,13 +98,29 @@ layeredimage rai:
             "images/Raimondo/Happy.png"
         attribute mad:
             "images/Raimondo/Mad.png"
-    group body:
-        attribute base default:
-            "images/Raimondo/Base.png"
-        attribute meee:
-            "images/Raimondo/Meee.png"
 
-image side rai = LayeredImageProxy("rai")
+image side pastrai:
+    zoom 0.45 yoffset 550
+    "images/Raimondo/Past1.png"
+
+################################################################################
+
+### BACKGROUNDS ###
+
+image black = "#000"
+image car = "images/pexels-Alessandro-Aviles.avif"
+image approaching = "images/approaching-Kerche.jpg"
+image villafar = "images/villafar-Kerche.jpg"
+image parking = "images/unsplash-parking-sebastian-huxley.jpg"
+image outside = "images/outside-Kerche.jpg"
+image bglight:
+    zoom 2.0
+    "images/bglight.png"
+image chlight:
+    zoom 2.0
+    "images/chlight.png"
+
+################################################################################
 
 # The game starts here.
 
@@ -107,22 +130,19 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene test at goodsize
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show rai happy at center
-    show ann happy at left
-
     # These display lines of dialogue.
 
-    MCA "You've created a new Ren'Py game."
+    "You've created a new Ren'Py game."
 
     show rai neutral at center
 
-    A "Once you add a story, pictures, and music, you can release it to the world!"
+    MCR "Once you add a story, pictures, and music, you can release it to the world!"
 
     show rai mad meee at center
 

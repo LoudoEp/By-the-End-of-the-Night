@@ -6,7 +6,6 @@ init offset = -1
 
 image texty = "gui/textbox1.png"
 
-
 ################################################################################
 ## Styles
 ################################################################################
@@ -120,7 +119,7 @@ screen say(who, what):
     ## If there's a side image, display it above the text. Do not display on the
     ## phone variant - there's no room.
     if not renpy.variant("small"):
-        add SideImage() xalign -0.25 yalign -4.0
+        add SideImage() xalign -0.9 yalign 0.2
 
 
 ## Make the namebox available for styling through the Character object.
@@ -164,7 +163,6 @@ style say_dialogue:
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
 
-    line_spacing 4
     adjust_spacing False
 
 ## Input screen ################################################################
@@ -250,7 +248,9 @@ screen quick_menu():
 
         hbox:
             style_prefix "quick"
-            style "quick_menu"
+
+            xalign 0.5
+            yalign 1.0
 
             textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
@@ -269,13 +269,8 @@ init python:
 
 default quick_menu = True
 
-style quick_menu is hbox
 style quick_button is default
 style quick_button_text is button_text
-
-style quick_menu:
-    xalign 0.5
-    yalign 1.0
 
 style quick_button:
     properties gui.button_properties("quick_button")
@@ -305,7 +300,7 @@ screen navigation():
 
         if main_menu:
 
-            pass#textbutton _("Start") action Start()
+            textbutton _("Start") action Start()
 
         else:
 
@@ -363,18 +358,53 @@ screen main_menu():
 
     add gui.main_menu_background
 
-    hbox:
-        xanchor 0.5
-        yanchor 0.5
-        xpos 0.5
-        ypos 0.8
-        spacing 50
-        textbutton _("Start") action Start() text_size 50
-        textbutton _("Load") action ShowMenu("load") text_size 50
-        textbutton _("Preferences") action ShowMenu("preferences") text_size 50
-        textbutton _("About") action ShowMenu("about") text_size 50
-        if renpy.variant("pc"):
-            textbutton _("Quit") action Quit(confirm=not main_menu) text_size 50
+    ## This empty frame darkens the main menu.
+    frame:
+        style "main_menu_frame"
+
+    ## The use statement includes another screen inside this one. The actual
+    ## contents of the main menu are in the navigation screen.
+    use navigation
+
+    if gui.show_name:
+
+        vbox:
+            style "main_menu_vbox"
+
+            text "[config.name!t]":
+                style "main_menu_title"
+
+            text "[config.version]":
+                style "main_menu_version"
+
+
+style main_menu_frame is empty
+style main_menu_vbox is vbox
+style main_menu_text is gui_text
+style main_menu_title is main_menu_text
+style main_menu_version is main_menu_text
+
+style main_menu_frame:
+    xsize 420
+    yfill True
+
+    background "gui/overlay/main_menu.png"
+
+style main_menu_vbox:
+    xalign 1.0
+    xoffset -30
+    xmaximum 1200
+    yalign 1.0
+    yoffset -30
+
+style main_menu_text:
+    properties gui.text_properties("main_menu", accent=True)
+
+style main_menu_title:
+    properties gui.text_properties("title")
+
+style main_menu_version:
+    properties gui.text_properties("version")
 
 
 ## Game Menu screen ############################################################
@@ -499,7 +529,7 @@ style game_menu_label:
     ysize 180
 
 style game_menu_label_text:
-    size 75
+    size gui.title_text_size
     color gui.accent_color
     yalign 0.5
 
@@ -635,7 +665,6 @@ screen file_slots(title):
                     spacing gui.page_spacing
 
                     textbutton _("<") action FilePagePrevious()
-                    key "save_page_prev" action FilePagePrevious()
 
                     if config.has_autosave:
                         textbutton _("{#auto_page}A") action FilePage("auto")
@@ -648,7 +677,6 @@ screen file_slots(title):
                         textbutton "[page]" action FilePage(page)
 
                     textbutton _(">") action FilePageNext()
-                    key "save_page_next" action FilePageNext()
 
                 if config.has_sync:
                     if CurrentScreenName() == "save":
@@ -674,7 +702,6 @@ style slot_name_text is slot_button_text
 style page_label:
     xpadding 75
     ypadding 5
-    xalign 0.5
 
 style page_label_text:
     textalign 0.5
@@ -1413,10 +1440,6 @@ screen bubble(who, what):
         text what:
             id "what"
 
-        default ctc = None
-        showif ctc:
-            add ctc
-
 style bubble_window is empty
 style bubble_namebox is empty
 style bubble_who is default
@@ -1498,8 +1521,10 @@ screen quick_menu():
     if quick_menu:
 
         hbox:
-            style "quick_menu"
             style_prefix "quick"
+
+            xalign 0.5
+            yalign 1.0
 
             textbutton _("Back") action Rollback()
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
@@ -1538,10 +1563,6 @@ style game_menu_navigation_frame:
 style game_menu_content_frame:
     variant "small"
     top_margin 0
-
-style game_menu_viewport:
-    variant "small"
-    xsize 1305
 
 style pref_vbox:
     variant "small"
