@@ -4,8 +4,18 @@
 
 ### TRANSFORMS ###
 
-transform goodsize:
+transform goodsize:                 #borrowed from Unagi
     xysize (1920, 1080)
+
+transform orb_anim:                 #borrowed from Rekion
+    xalign 0.5
+    yalign 0.5
+    parallel:
+        easein 1.5 yalign 0.425
+        block:
+            ease 3.0 yalign 0.575
+            ease 3.0 yalign 0.425
+            repeat
 
 ################################################################################
 
@@ -35,6 +45,8 @@ layeredimage fed:
             "images/Federico/Concerned.png"
         attribute happy:
             "images/Federico/Happy.png"
+        attribute mad:
+            "images/Federico/Mad.png"
         attribute sad:
             "images/Federico/Sad.png"
         attribute turned:
@@ -124,12 +136,34 @@ image side rai = LayeredImageProxy("rai")
 image side pastrai:
     zoom 0.45 yoffset 550
     "images/Raimondo/Past1.png"
+    pause 3.0
+    zoom 0.45 yoffset 550
+    "images/Raimondo/Past2.png"
+    pause 0.5
+    zoom 0.45 yoffset 550
+    "images/Raimondo/Past1.png"
+    pause 5.0
+    zoom 0.45 yoffset 550
+    "images/Raimondo/Past2.png"
+    pause 0.5
+    zoom 0.45 yoffset 550
+    "images/Raimondo/Past1.png"
+    pause 2.0
+    zoom 0.45 yoffset 550
+    "images/Raimondo/Past2.png"
+    pause 0.5
+    repeat
+    
 
 ################################################################################
 
 ### POLYHEDRON ###
 
-define Poly = Character(_("Polyhedron"), color ="#fff", what_prefix='“', what_suffix='"')
+define P = Character(_("Polyhedron"), color ="#fff", what_prefix='“', what_suffix='"')
+
+image poly:
+    zoom 0.3
+    "images/Poly/STATUE_sprite.png"
 
 
 ################################################################################
@@ -164,6 +198,8 @@ stop music fadeout 3.0
 pause 5.0
 #play music chat volume 0.3
 scene car at goodsize with Dissolve(5.0)
+
+$ _window_show()
 
 "According to Federico, the air conditioning in his car struggles every summer."
 
@@ -1000,7 +1036,7 @@ pause 0.1
 
 $ pov = "anna"
 
-show ladyportrait at top with dissolve:
+show ladyportrait at top with Dissolve(5.0):
     zoom 0.4
 
 "A large family portrait hangs in a sitting room. There are other paintings around, but this one—this one
@@ -1089,9 +1125,11 @@ R "Blah blah"
 
 R "Blah blah blah blah blah blah blah blah blah {size=30}blah blah blah blah blah blah blah blah blah {/size}{size=20}blah blah blah blah blah blah blah blah blah {/size}{size=10}blah blah blah blah blah blah blah blah blah {/size}{size=5}blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah{/size}" #smaller and smaller
 
-R "{cps=0}{size=5}Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah{/size}{/cps}{w=5.0}{nw}" #smaller and smaller
+"{cps=0}{size=5}Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah{/size}{/cps}{w=5.0}{nw}" #smaller and smaller
 
 scene black with Dissolve(5.0)
+pause 1.0
+scene classroomcg2 at goodsize with Dissolve(5.0)
 
 N "It was the first week of the second year of university."
 
@@ -1112,7 +1150,7 @@ N "But as I was sitting among unfamiliar faces in that small room, I was having 
 
 N "When she sat next to me, I was shocked."
 
-#[beat]
+scene classroomcg at goodsize with Dissolve(5.0)
 
 N "Looking back now, she probably did that without even thinking about it."
 
@@ -1164,6 +1202,8 @@ N "I loved it."
 
 N "It was Verdi, of course."
 
+scene black with Dissolve(5.0)
+
 pause
 
 R "Right, Fede?"
@@ -1194,7 +1234,7 @@ pause 0.1
 
 $ pov = "anna"
 
-show wardrobe at truecenter with dissolve:
+show wardrobe at truecenter with Dissolve(5.0):
     zoom 0.4
 
 "…"
@@ -1205,7 +1245,7 @@ show wardrobe at truecenter with dissolve:
 
 "You're glad the exhibit exists, of course, but so much of it is text on placards."
 
-scene black with Dissolve(5.0)
+scene black with dissolve
 pause 0.1
 show womenthru at truecenter with dissolve:
     zoom 0.4
@@ -1384,12 +1424,12 @@ extend "Twice."
 
 MCA "We can head back."
 
-scene black with dissolve
+scene black with Dissolve(5.0)
 pause 0.1
 
 ############################################### FEDE POV ###############################################
 
-show wardrobe at truecenter with dissolve:
+show wardrobe at truecenter with Dissolve(5.0):
     zoom 0.4
 
 $ pov = "fede"
@@ -1556,13 +1596,13 @@ scene black with dissolve
 
 pause 5.0
 
-MCA side neutral "It's an interesting story, but every time this Bianca is in the same room as the protagonist, it's like—"
+A "It's an interesting story, but every time this Bianca is in the same room as the protagonist, it's like—"
 
 "I don\'t know where I'm going. Just walking."
 
 "Carpet. Wood. Tile. Doorways."
 
-MCA "—of why he would do it. Remember, the ex-wife's been out of the picture for fifteen years at this point, and—"
+A "—of why he would do it. Remember, the ex-wife's been out of the picture for fifteen years at this point, and—"
 
 "Why did I say “I want to show you something”?"
 
@@ -1572,7 +1612,7 @@ MCA "—of why he would do it. Remember, the ex-wife's been out of the picture f
 
 "I almost jump when Anna touches my hand."
 
-MCA concerned "Fede, what's going on?"
+MCA side concerned "Fede, what's going on?"
 
 "She must know. She must know I don't know what I'm doing."
 
@@ -1596,7 +1636,7 @@ with dissolve
 
 "I stay standing."
 
-MCF "I have something to tell you."
+MCF concerned "I have something to tell you."
 
 A "Yes."
 
@@ -1604,11 +1644,17 @@ MCF "You know I like you. I enjoy being with you."
 
 MCF "You're the prettiest girl I've ever met."
 
+show ann sad
+
 A "Where is this going?"
 
 MCF "I like men."
 
 #"Show Anna surprised"
+
+show ann concerned
+pause 1.0
+show ann neutral
 
 "There. Band-aid ripped off."
 
@@ -1644,19 +1690,25 @@ MCF "I want you to know."
 
 MCF "Anna?"
 
+show ann concerned
+
 A "So you're…"
 
 MCF "I like both. And right now I—"
+
+show ann mad
 
 A "I know what a {i}bisexual{/i} is, Federico!"
 
 "What?"
 
-MCF "Don’t call me that."
+MCF mad "Don’t call me that."
 
 "I hate the way it sounds in her mouth."
 
 MCF "I don't get what this is. You're one hundred percent okay with Raimondo."
+
+show ann angry base
 
 A "I'm not dating Raimondo!"
 
@@ -1664,7 +1716,11 @@ A "I'm not bringing him home to my parents and telling them, “Hey, this might 
 
 MCF "You haven't brought me—"
 
+show ann mad
+
 A "“Who, by the way, has probably had a dick in his mouth at some point.”"
+
+show ann angry
 
 MCF "Woah, woah, woah."
 
@@ -1674,6 +1730,8 @@ A "Well, have you?"
 
 "I came here to tell the truth, but now there's a louder part of me that wants—"
 
+show ann concerned
+
 A "It was Raimondo, wasn't it?"
 
 #"Show fede portrait angry"
@@ -1682,21 +1740,31 @@ A "It was Raimondo, wasn't it?"
 
 MCF "Don't act like your mouth ain't dirty too."
 
+show ann mad
+
 "This shuts her up."
 
 #"Play sound knocked_over"
 
+hide ann with dissolve
+
 #"Hide anna"
 
-#"She knocks the flashlight over."
+"She knocks the flashlight over."
 
 "It spins once, twice, casting rolling shadows over the walls."
 
 "She's gone."
 
+scene black with Dissolve(5.0)
+pause 5.0
+
 ############################################### ANNA POV ###############################################
 
 $ pov = "anna"
+
+show upstairs at truecenter with Dissolve(5.0):
+    zoom 0.6
 
 "It's all right for straight men to have gay friends. Preferred, even. It means that they are open-minded
 and able to respect people who are not like them."
@@ -1731,9 +1799,18 @@ pause 2.0
 
 "Let them."
 
+scene black with Dissolve(5.0)
+pause 0.1
+
 ############################################### FEDE POV ###############################################
 
 $ pov = "fede"
+
+show anteroom at truecenter:
+    zoom 0.5
+show rai mad at center:
+    matrixcolor BrightnessMatrix(-0.2)
+with Dissolve(5.0)
 
 R "The fuck?"
 
@@ -1742,6 +1819,8 @@ R "Did she really say that?"
 "Rai's presence was supposed to make things better. Give me strength."
 
 "But now that things have gone south, I would have preferred to be alone. To have more time before having to tell someone else what had happened."
+
+show rai sad
 
 R "I'm sorry, Fede."
 
@@ -1752,6 +1831,8 @@ R "I'm sorry, Fede."
 R "Hey, no need to take it out on the villa."
 
 R "Let's sit a minute, ok?"
+
+hide rai with dissolve
 
 "He sits on a bench, intended for the tourists to pause and take in the room we're currently in."
 
@@ -1775,13 +1856,13 @@ R "Let's sit a minute, ok?"
 
 "I had been scared to share that part of myself for a while now. But even then, I wasn't prepared for this kind of burning rejection."
 
-MCF "I'm sorry I dragged you into this."
+MCF sad "I'm sorry I dragged you into this."
 
 "Right now, that's the only thing I feel sure about."
 
-MCR "Dude, you kidding?"
+MCR sad "Dude, you kidding?"
 
-MCR "I'm glad I can be here for you."
+MCR neutral "I'm glad I can be here for you."
 
 "A warmth spreads over my back, where he's making small stroking motions."
 
@@ -1791,7 +1872,7 @@ MCR "You think I haven't been through bad coming outs myself? I get you."
 
 "And after discovering Anna was not the person I thought she was, this too stings like a betrayal."
 
-MCF "I sincerely doubt that."
+MCF sad "I sincerely doubt that."
 
 "It came out more vitriolic than I intended."
 
@@ -1803,17 +1884,17 @@ MCF "I don't think you've ever had to worry about the person you're dating holdi
 
 "Instead, he seems to find renewed interest in the exhibits around us."
 
-MCF "You have, haven't you?"
+MCF concerned "You have, haven't you?"
 
-MCR "Went out with a guy like that? Of course not. Who's ever heard of a gay guy being homophobic? That'd be totally absurd."
+MCR neutral "Went out with a guy like that? Of course not. Who's ever heard of a gay guy being homophobic? That'd be totally absurd."
 
 "I deserve this ridicule."
 
-MCF "Well, maybe I'd have known if you'd told me!"
+MCF mad "Well, maybe I'd have known if you'd told me!"
 
 "Raimondo stares blankly into the void for a while. When he speaks again, he's weighing his words carefully."
 
-MCR "Do you need someone to vent against, Federico? If that's what this is all about, I can lay and take it."
+MCR mad "Do you need someone to vent against, Federico? If that's what this is all about, I can lay and take it."
 
 MCR "But I think you're angry at Anna, not me."
 
@@ -1839,17 +1920,17 @@ MCF "I told you I'm dating this girl and you've never asked me any follow-up que
 
 #[beat]
 
-MCR "Maybe you're right."
+MCR sad "Maybe you're right."
 
-MCR "If you'd been dating a guy, I would have been an insufferable gossip."
+MCR "Had you been dating a guy, I would have been an insufferable gossip."
 
-MCR "I plead guilty."
+MCR neutral "I plead guilty."
 
-MCR "I wouldn't have given you peace until you fessed up all his measurements, that's for sure!"
+MCR "I'd have given you no peace until you fessed up all his measurements, that's for sure!"
 
-MCR "But with you going straight… It felt like we had less in common, you know? Less things to share."
+MCR sad "But with you going straight… It felt like we had less in common, you know? Less things to share."
 
-MCF "Well…"
+MCF sad "Well…"
 
 "I gesture towards the dark empty room, in the vague direction where Anna had left."
 
@@ -1865,7 +1946,7 @@ MCR "I guess… I felt weird talking about gay stuff with you, once you started 
 
 "Finally, he smiles."
 
-MCR "That was really stupid of me. Can you forgive me?"
+MCR neutral "That was really stupid of me. Can you forgive me?"
 
 "It takes me by surprise."
 
@@ -1873,13 +1954,13 @@ MCR "That was really stupid of me. Can you forgive me?"
 
 "For once this night, I can lower my guard. The muscles I didn't realize I was tensing ache as I finally relax them."
 
-MCF "Of c-course."
+MCF concerned "Of c-course."
 
 "I have to fight back some tears. Raimondo closes the distance between us and hugs me tight."
 
 "I reciprocate the embrace."
 
-MCR "I'm so sorry it didn't work out with Anna."
+MCR sad "I'm so sorry it didn't work out with Anna."
 
 MCR "She can't see how lucky she is."
 
@@ -1905,15 +1986,22 @@ of *his* breath…"
 "Raimondo hesitantly pulls away, the realization of his mistake written over his face."
 
 "It's only after he's already moved his mouth away that I finally pull from the hug and get up."
-MCF "What the hell, man."
+
+MCF mad "What the hell, man."
 
 "I can't deal with this. Not right now."
 
 "It's my turn to storm away."
 
+scene black with Dissolve(5.0)
+pause 0.1
+
 ############################################### ANNA POV ###############################################
 
 $ pov = "anna"
+
+show upstairs at truecenter with Dissolve(5.0):
+    zoom 0.6
 
 "You hold Lady Giuditta's necklace in your palm. Its pendant is heavy, made out of some precious
 metal of the olden days."
@@ -1962,9 +2050,14 @@ bright red-orange."
 
 "It does not match Ferdinand's."
 
+scene black with Dissolve(5.0)
+
 ############################################### FEDE POV ###############################################
 
 $ pov = "fede"
+
+show ladyportrait at top with Dissolve(5.0):
+    zoom 0.4
 
 "What a crap night."
 
@@ -2004,7 +2097,12 @@ $ pov = "fede"
 
 "Is she trying to tell me something about herself?"
 
+scene black with dissolve
+
 "I step away, having had enough of this room."
+
+show spooky at truecenter with dissolve:
+    zoom 0.5
 
 "I venture down a hallway I'm pretty sure I haven't been in before. Hoping I don't stumble into anyone else."
 
@@ -2016,11 +2114,17 @@ $ pov = "fede"
 
 #[reveal of the statues]
 
+show spooky2 at truecenter with dissolve:
+    zoom 0.5
+
 "Oh."
 
 "They're just sculptures."
 
 "This place has so many random exhibits."
+
+show wolfies at truecenter with dissolve:
+    zoom 0.5
 
 "They're feral wolves. Three of them."
 
@@ -2036,7 +2140,11 @@ $ pov = "fede"
 
 "I think back to what Anna said."
 
+scene black with dissolve
+
 A "{i}It was Raimondo, wasn't it?{/i}"
+
+pause 2.0
 
 #[beat]
 
@@ -2223,6 +2331,8 @@ N "Finally, I must have admitted I just wasn't in the mood. I just wanted to go 
 
 N "And that had been the end of that night."
 
+pause 2.0
+
 N "Hmph."
 
 N "I remember being so anxious about talking to Raimondo the next day, I was tempted to hide from him."
@@ -2239,6 +2349,8 @@ N "Eventually it would come up, I was sure. But it never did."
 
 N "We never mentioned it again."
 
+pause 2.0
+
 "I guess what happened earlier is the closest I've come to acknowledging I sucked Raimondo's dick since it happened."
 
 "And now it's the reason Anna doesn't want to introduce me to her parents… as their future son-in-law? Is that how she phrased it?"
@@ -2251,13 +2363,20 @@ N "We never mentioned it again."
 
 "Your future husband had no qualms about that."
 
+show goodboy at center with dissolve:
+    zoom 0.65 yoffset 150
+
 "I look back to the wolves."
 
 "This one kinda looks like Raimondo."
 
-"A little bit. He has his spunk. I like it."
+"A little bit. He has his spunk."
+
+"I like it."
 
 "I stretch my hand and pet it as if it was a real dog."
+
+pause 2.0
 
 "Raimondo didn't deserve it, did he?"
 
@@ -2265,11 +2384,16 @@ N "We never mentioned it again."
 
 "In my heart, I deceived myself into thinking we had both agreed that being best friends was enough for us."
 
-"Best friend. Wasn't that how I introduced him earlier to Anna?"
+"“Best friend”. Wasn't that how I introduced him to Anna earlier?"
 
 "Wasn't that how I've been introducing him to everyone ever since?"
 
 "I think back to Lady Giuditta again. Isn't her story that she got to be introduced as she wished?"
+
+scene black with dissolve
+pause 0.1
+show hallway at center with dissolve:
+    zoom 0.5
 
 "I finally look back to where I came from."
 
@@ -2279,10 +2403,15 @@ N "We never mentioned it again."
 
 "I brought everyone here to be honest. Time to be honest with him too."
 
+scene black with Dissolve(5.0)
+pause 0.1
 
 ############################################### ANNA POV ###############################################
 
 $ pov = "anna"
+
+show modernart at truecenter with Dissolve(5.0):
+    zoom 0.6
 
 "Love is patient, love is kind."
 
@@ -2298,6 +2427,8 @@ $ pov = "anna"
 
 "The paintings and sculptures in this room feel patient and, perhaps, even kind."
 
+show poly at orb_anim with dissolve
+
 "The faces of this polyhedron demand nothing from you."
 
 "“All is dust in the wind,” and all that."
@@ -2306,25 +2437,25 @@ $ pov = "anna"
 
 "People are allowed to appreciate art in a museum."
 
-Poly "How are you feeling?"
+P "How are you feeling?"
 
 "Sad. Crushed. Like I want to escape."
 
-Poly "Escape to where?"
+P "Escape to where?"
 
 "Here is fine."
 
-Poly "I see. That's all right. I will be here."
+P "I see. That's all right. I will be here."
 
 "…"
 
-Poly "…"
+P "…"
 
 "…"
 
 "So Giuditta was in love with someone else."
 
-Poly "That is typically what these fur lockets mean."
+P "That is typically what these fur lockets mean."
 
 "From before, though. And she married Ferdinand anyways."
 
@@ -2340,21 +2471,28 @@ Poly "That is typically what these fur lockets mean."
 
 "Am I allowed to stay here?"
 
-Poly "Stay here as long as you need."
+P "Stay here as long as you need."
 
-Poly "Let it out, let it out."
+P "Let it out, let it out."
 
-Poly "It's okay. No one can see you here."
+P "It's okay. No one can see you here."
+
+scene black with Dissolve(5.0)
+pause 0.1
 
 ############################################### FEDE POV ###############################################
+
+show anteroom at truecenter with dissolve:
+    zoom 0.5
+with Dissolve(5.0)
 
 $ pov = "fede"
 
 "He's still sitting where I left him, in the room with the portrait of the Lady."
 
-MCR "Hey."
+MCR sad "Hey."
 
-MCF "Hey."
+MCF concerned "Hey."
 
 "He doesn't get up. He doesn't look at me"
 
@@ -2362,7 +2500,7 @@ MCR "Listen, I'm so-"
 
 MCF "No, please!"
 
-MCF "Let me go first."
+MCF neutral "Let me go first."
 
 MCF "You've apologized quite enough for one night."
 
@@ -2372,31 +2510,31 @@ MCF "You've got nothing to apologize for."
 
 MCF "You know, I've done some thinking, and I've realized I keep telling everyone you're my best friend."
 
-MCF "But I've never bothered to check if that's what you want to be."
+MCF concerned "But I've never bothered to check if that's what you want to be."
 
 MCF "I've never told you how I feel. And for that, it's me who should apologize."
 
 MCF "I- Do you mind if I sit next to you?"
 
-MCF "Feels a little weird to talk down on you like this."
+MCF neutral "Feels a little weird to talk down on you like this."
 
 "Raimondo looks at the spot next to him, as if considering his choice carefully. Then he shrugs."
 
-MCR "Course."
+MCR sad "Course."
 
 #"I sit next to him, while trying to maintain a respectful distance between us."
 
-MCF "I won't pretend I've understood how love works."
+MCF concerned "I won't pretend I've understood how love works."
 
 "Well, that's one way to start this conversation."
 
-MCF "There's still so much stuff I'm still trying to figure out."
+MCF sad "There's still so much stuff I'm still trying to figure out."
 
 MCF "I feel pretty confident about a few things though."
 
 MCF "I like women, and I like men too. Even if I don't have the best track record to prove that second part."
 
-MCF "And I love you. I really do."
+MCF neutral "And I love you. I really do."
 
 "I don't look away, I don't slouch. I want to make sure he understands I have no reservations about what I'm saying."
 
