@@ -175,9 +175,7 @@ image poly:
 image black = "#000"
 image car = "images/pexels-Alessandro-Aviles.avif"
 image approaching = "images/approaching-Kerche.jpg"
-image villafar = "images/villafar-Kerche.jpg"
 image parking = "images/unsplash-parking-sebastian-huxley.jpg"
-image outside = "images/outside-Kerche.jpg"
 image bglight:
     zoom 2.0
     "images/bglight.png"
@@ -185,8 +183,8 @@ image chlight:
     zoom 2.0
     "images/chlight.png"
 image shed = "images/unsplash-shed-ricky-kharawala.jpg"
-image nightfield = "images/unsplash-nightfield-artur-oliinyk.jpg"
-image vase = "images/unsplash-vase-kamilla-isalieva.jpg"
+image nightfield = "images/unsplash-nightfield-artur-oliinyk.webp"
+image vase = "images/unsplash-vase-kamilla-isalieva.webp"
 
 ################################################################################
 
@@ -246,6 +244,7 @@ scene black with dissolve
 pause 0.1
 scene approaching at truecenter:
     zoom 0.5
+    matrixcolor BrightnessMatrix(-0.2)
 with dissolve
 
 pause 2.0
@@ -498,7 +497,7 @@ R "Cool your jets, the show hasn't started."
 
 show rai neutral
 
-R "And besides"
+R "And besides."
 
 show rai:
     linear 1.0 yalign 0.5
@@ -536,6 +535,8 @@ R "Cheers!"
 "Of course Raimondo was making no attempt to impress me."
 
 "Anna will have to live with it, for tonight at least."
+
+show rai neutral
 
 A "Is there a reason why we're drinking here, of all places? Why don't we go inside?"
 
@@ -656,7 +657,17 @@ pause 1.0
 show gagmoment at goodsize:
     linear 2.0 xpos(1.0)
 
+pause 3.0
+
+show rai:
+    zoom 0.3
+    xpos(850) ypos(-150)
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
+
 R "So are you ready or what?"
+
+show rai annoyed
 
 R "Geez, guys, I have nothing against straight people, but do keep it in the bedroom."
 
@@ -692,7 +703,8 @@ scene black with dissolve
 
 "He pushes the doors with both hands."
 
-show entryway at goodsize
+show entryway at goodsize:
+    matrixcolor BrightnessMatrix(-0.5)
 show rai at center:
     matrixcolor BrightnessMatrix(-0.5)
     zoom 0.4 yoffset -700
@@ -715,8 +727,12 @@ A "Where's the light?"
 "For a moment I worry Anna might be frightened. Instead, I see her tentatively stepping deeper into the room."
 
 # light
+show entryway at goodsize:
+    matrixcolor BrightnessMatrix(0.0)
+show bglight behind rai at truecenter
 show rai at center:
     matrixcolor BrightnessMatrix(-0.2)
+show chlight at truecenter
 
 "A flashlight."
 
@@ -806,7 +822,8 @@ MCA side happy "Yeah."
 
 scene black with dissolve
 pause 0.1
-show grandstairs at goodsize with dissolve
+show grandstairs at goodsize
+with dissolve
 
 "Raimondo's light has disappeared above the stairs. He must have reached the next floor already."
 
@@ -991,8 +1008,9 @@ scene black with dissolve
 
 scene black with dissolve
 pause 0.1
-show bouquet at truecenter with dissolve:
+show bouquet at truecenter:
     zoom 0.4
+with dissolve
 
 "The rooms follow one after the other, with no hallway or transition in between."
 
@@ -1038,8 +1056,11 @@ pause 0.1
 
 $ pov = "anna"
 
-show ladyportrait at top with Dissolve(5.0):
+show ladyportrait at top:
     zoom 0.4
+show chlight at truecenter:
+    zoom 0.5
+with Dissolve(5.0)
 
 "A large family portrait hangs in a sitting room. There are other paintings around, but this one—this one
 is {i}displayed{/i}."
@@ -1071,7 +1092,7 @@ R "Giuditta and Ferdinand. The Lady and Lord von Radetz."
 
 show fed concerned at right:
     xzoom -1.0
-    matrixcolor BrightnessMatrix(-0.2)
+    matrixcolor BrightnessMatrix(-0.1)
 with dissolve
 
 F "Lady and Lord?"
@@ -1214,6 +1235,8 @@ F "What?"
 
 show ladyportrait at top:
     zoom 0.4
+show chlight at truecenter:
+    zoom 0.5
 show rai happy at left:
     matrixcolor BrightnessMatrix(-0.2)
 show ann concerned at right:
@@ -1249,8 +1272,11 @@ show wardrobe at truecenter with Dissolve(5.0):
 
 scene black with dissolve
 pause 0.1
-show womenthru at truecenter with dissolve:
+show womenthru at truecenter:
     zoom 0.4
+show chlight at truecenter:
+    zoom 0.5
+with dissolve
 
 "You starts recognizing names when it reaches the modern day, but otherwise nothing sticks with you."
 
@@ -1308,7 +1334,7 @@ show rai:
 pause 0.1
 show fed at right:
     xzoom -1.0
-    matrixcolor BrightnessMatrix(-0.2)
+    matrixcolor BrightnessMatrix(-0.1)
 with dissolve
 
 F "I didn't know you used to play volleyball."
@@ -1329,8 +1355,11 @@ scene black with dissolve
 
 "You step into the next exhibit."
 
-show weddingdress at truecenter with dissolve:
+show weddingdress at truecenter:
     zoom 0.5
+show chlight at truecenter:
+    zoom 0.5
+with dissolve
 
 #"Scene bg dress"
 
@@ -1431,10 +1460,10 @@ pause 0.1
 
 ############################################### FEDE POV ###############################################
 
+$ pov = "fede"
+
 show wardrobe at truecenter with Dissolve(5.0):
     zoom 0.4
-
-$ pov = "fede"
 
 "The two of them come back to the front of the exhibit, and we group back up before heading to the
 lady's quarters."
@@ -1504,13 +1533,9 @@ scene black with dissolve
 
 "I close my eyes and wish."
 
-$ _window_hide()
-
 centered "That after everything I have to tell her tonight, she'll stay with me."
 
 pause 5.0
-
-$ _window_show()
 
 "Eventually we get to the point where even Rai's enthusiasm is flagging."
 
@@ -1766,6 +1791,7 @@ pause 5.0
 $ pov = "anna"
 
 show upstairs at truecenter with Dissolve(5.0):
+    matrixcolor BrightnessMatrix(-0.2)
     zoom 0.6
 
 "It's all right for straight men to have gay friends. Preferred, even. It means that they are open-minded
@@ -2003,6 +2029,7 @@ pause 0.1
 $ pov = "anna"
 
 show upstairs at truecenter with Dissolve(5.0):
+    matrixcolor BrightnessMatrix(-0.2)
     zoom 0.6
 
 "You hold Lady Giuditta's necklace in your palm. Its pendant is heavy, made out of some precious
@@ -2017,7 +2044,7 @@ the wall."
 
 "There's no one around to stop you. So you do."
 
-"Play sound necklace_impact"
+#"Play sound necklace_impact"
 
 pause 0.5
 
@@ -2058,8 +2085,11 @@ scene black with Dissolve(5.0)
 
 $ pov = "fede"
 
-show ladyportrait at top with Dissolve(5.0):
+show ladyportrait at top:
     zoom 0.4
+show chlight at truecenter:
+    zoom 0.5
+with Dissolve(5.0)
 
 "What a crap night."
 
@@ -2103,8 +2133,12 @@ scene black with dissolve
 
 "I step away, having had enough of this room."
 
-show spooky at truecenter with dissolve:
+show spooky at truecenter:
     zoom 0.5
+    matrixcolor BrightnessMatrix(-0.2)
+show chlight at truecenter:
+    zoom 0.5
+with dissolve
 
 "I venture down a hallway I'm pretty sure I haven't been in before. Hoping I don't stumble into anyone else."
 
@@ -2116,8 +2150,9 @@ show spooky at truecenter with dissolve:
 
 #[reveal of the statues]
 
-show spooky2 at truecenter with dissolve:
+show spooky2 behind chlight at truecenter:
     zoom 0.5
+with dissolve
 
 "Oh."
 
@@ -2125,8 +2160,12 @@ show spooky2 at truecenter with dissolve:
 
 "This place has so many random exhibits."
 
-show wolfies at truecenter with dissolve:
+show wolfies at truecenter:
     zoom 0.5
+    matrixcolor BrightnessMatrix(-0.2)
+show chlight at truecenter:
+    zoom 0.5
+with dissolve
 
 "They're feral wolves. Three of them."
 
@@ -2151,6 +2190,8 @@ pause 2.0
 #[beat]
 
 RFB "Want another one?"
+
+show busstopcg at goodsize with Dissolve(5.0)
 
 N "I think I declined the beer. I had more than enough already."
 
@@ -2211,6 +2252,7 @@ N "But I could see the hurt in his eyes, the first time I raised the topic."
 N "So I just hummed, noncommittally."
 
 FFB "Mmm."
+
 FFB "I don't think I'll be missing school either."
 
 FFB "I'll be missing our classmates though."
@@ -2271,6 +2313,8 @@ RFB "And there's no rush."
 
 RFB "Your real best quality, actually, is that you're so hot that all you'll need to do is ask a guy."
 
+scene black with Dissolve(5.0)
+
 N "It was the alcohol talking, that's for sure."
 
 N "Raimondo had never had any qualms about making lewd comments, but that had been the first time he said something that carried such heavy implications."
@@ -2289,7 +2333,7 @@ N "And I did. One way or another, my hand must have landed on his crotch, becaus
 
 RFB "Not in the middle of the road. Follow me."
 
-#[beat]
+scene blowjobcg at goodsize with Dissolve(5.0)
 
 N "Yes, Anna. It was Raimondo."
 
@@ -2304,6 +2348,8 @@ N "I felt like it was my fault at the time, but he had just encouraged me to kee
 N "Once I finally managed to make him cum, I was so happy I could throw up."
 
 N "He was such a sight. Making that familiar cocky grin melt into a gasp of pure abandonment was euphoric."
+
+scene black with Dissolve(5.0)
 
 N "Eventually it was over, though."
 
@@ -2365,8 +2411,10 @@ pause 2.0
 
 "Your future husband had no qualms about that."
 
-show goodboy at center with dissolve:
+show goodboy at center:
+    matrixcolor BrightnessMatrix(-0.2)
     zoom 0.65 yoffset 150
+with dissolve
 
 "I look back to the wolves."
 
@@ -2395,6 +2443,7 @@ pause 2.0
 scene black with dissolve
 pause 0.1
 show hallway at center with dissolve:
+    matrixcolor BrightnessMatrix(-0.2)
     zoom 0.5
 
 "I finally look back to where I came from."
@@ -2414,6 +2463,7 @@ $ pov = "anna"
 
 show modernart at truecenter with Dissolve(5.0):
     zoom 0.6
+    matrixcolor BrightnessMatrix(-0.2)
 
 "Love is patient, love is kind."
 
@@ -2482,13 +2532,13 @@ P "It's okay. No one can see you here."
 scene black with Dissolve(5.0)
 pause 0.1
 
+$ pov = "fede"
+
 ############################################### FEDE POV ###############################################
 
 show anteroom at truecenter with dissolve:
     zoom 0.5
 with Dissolve(5.0)
-
-$ pov = "fede"
 
 "He's still sitting where I left him, in the room with the portrait of the Lady."
 
@@ -2617,9 +2667,9 @@ pause 0.1
 
 ############################################### ANNA POV ###############################################
 
-show black
-
 $ pov = "anna"
+
+show pianocg at goodsize with Dissolve(5.0)
 
 "You didn't fall in love with Fede the moment you met. Or even on your first date."
 
@@ -2636,6 +2686,8 @@ $ pov = "anna"
 "Had he been... like that, even back then?"
 
 "Is the Fede at the piano somewhere here in the villa right now, waiting for you?"
+
+scene black with Dissolve(5.0)
 
 "You make your way back to the anteroom which leaks light into the adjacent exhibit. A sign of life."
 
@@ -2716,6 +2768,8 @@ with dissolve
 
 "Time to go to him."
 
+scene black with dissolve
+
 #"Scene bg door"
 
 "Your hand is on the doorknob. It turns."
@@ -2738,6 +2792,11 @@ with dissolve
 
 #"Scene bg garden"
 
+show night at goodsize
+show dawn at goodsize:
+    alpha(0.0)
+with dissolve
+
 "The night air is cool and fresh, and the garden opens before you."
 
 "You walk down the steps. Stop."
@@ -2750,15 +2809,18 @@ with dissolve
 
 #"Show fede pensive [gaze elsewhere]"
 
+show fed turned at center with dissolve:
+    matrixcolor BrightnessMatrix(-0.1)
+
 "He must hear your footsteps on the grass as you approach. But he doesn't stir."
 
-MCA "Fede?"
+MCA sad2 "Fede?"
 
 F "Anna."
 
 "He says without turning towards you."
 
-MCA "I love you."
+MCA sad2 "I love you."
 
 "It hurts to get out. Your face burns."
 
@@ -2766,9 +2828,15 @@ MCA "I love you."
 
 #"Show fede direct [looking at her, same serious expression]"
 
+show fed concerned
+pause 1.0
+show fed neutral
+
 F "Love you too."
 
-"It\'s overwhelming."
+"It's overwhelming."
+
+hide fed with dissolve
 
 #"Play sound hug"
 
@@ -2784,15 +2852,20 @@ because you were the one who bought it for him."
 
 "Federico hums, and his shoulder buzzes against your face."
 
-F "Hey."
+MCF neutral "Hey."
 
-F "The sun's coming up."
+MCF "The sun's coming up."
 
 "He relaxes his grip, and you want to hold on, but he has decided the moment is over."
 
 "The sky behind Federico is still dark. He motions his head to something over your shoulder."
 
 "You turn to see what he sees."
+
+show dawn:
+    linear 25.0 alpha(1.0)
+
+pause (25.0)
 
 #"[Fade to black, credits]"
 
