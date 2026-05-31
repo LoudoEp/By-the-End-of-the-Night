@@ -89,6 +89,8 @@ layeredimage ann:
             "images/Anna/Mad.png"
         attribute sad:
             "images/Anna/Sad.png"
+        attribute sad2:
+            "images/Anna/Sad2.png"
     group eyes:
         attribute open default:
             Null()
@@ -2556,17 +2558,17 @@ MCF "I was really happy to get to hang out with you again, you know?"
 
 #beat
 
-MCF "When we did… that kind of stuff…"
+MCF sad "When we did… that kind of stuff…"
 
 "I stroke some invisible cylinder close to my mouth, before I remind myself I came here with the intention to speak clearly."
 
-MCF "When we had… sex…"
+MCF concerned "When we had… sex…"
 
 MCF "Even though I wanted it, part of me was so terrified I would be… bad at it."
 
-MCF "I guess now that I've had more experience, that feels like the kind of silliness we all go through when sex is new to us."
+MCF neutral "I guess now that I've had more experience, that feels like the kind of silliness we all go through when sex is new to us."
 
-MCF "But it wasn't just that. I believe what I really scared me was that sex could become the scale by which we would measure our friendship."
+MCF concerned "But it wasn't just that. I believe what I really scared me was that sex could become the scale by which we would measure our friendship."
 
 "He's let me talk for a while now."
 
@@ -2578,7 +2580,7 @@ MCF "But it wasn't just that. I believe what I really scared me was that sex cou
 
 "Just different."
 
-MCR "Thank you for telling me."
+MCR neutral "Thank you for telling me."
 
 "We stay like this for a while."
 
@@ -2586,31 +2588,36 @@ MCR "Thank you for telling me."
 
 "I get up."
 
-MCF "I think I'd like to go out now."
+MCF concerned "I think I'd like to go out now."
 
-MCR "Are you sure? The Lady might still grant your wish."
+MCR sad "Are you sure? The Lady might still grant your wish."
 
-MCF "I think that boat's sailed."
+MCF neutral "I think that boat's sailed."
 
 MCR "Has it?"
 
-MCF "I told you what happened."
+MCF sad "I told you what happened."
 
-MCR "Yeah. I've talked to her myself."
+MCR "Yeah. But I've talked to her myself."
 
-MCR "I don't think I gave her a fair chance tonight… But we've hung out."
+MCR neutral "I don't think I really gave her a fair chance tonight… But we've hung out."
 
-MCR "She might just need some time. Like we did."
+MCR "She might just need some time. Like we all do."
 
 MCR "Relationships are an endless cycle of opportunities to hurt each other."
 
 MCR "I'm not telling you you have to forgive her, if that's not what you want."
 
-MCR "I'm just telling you she might regret her first reaction. She might want to be forgiven."
+MCR "I'm just telling you she might come to regret her first reaction. She might want to be forgiven."
 
-MCR "Trust me. We do all the time."
+MCR happy "Trust me. We do all the time."
+
+scene black with Dissolve(5.0)
+pause 0.1
 
 ############################################### ANNA POV ###############################################
+
+show black
 
 $ pov = "anna"
 
@@ -2636,17 +2643,24 @@ $ pov = "anna"
 
 #"Show raimondo neutral"
 
+show anteroom at truecenter with dissolve:
+    zoom 0.5
+with dissolve
+
 "Raimondo is alone on the divan, and looks up at you when you enter."
 
 "It would've been romantic in this room with just the two of them. Soft shadows on soft fur."
 
 "But Federico is not here. Raimondo is alone."
 
-MCA "Ah… Hello again."
+MCA side sad2 "Ah… Hello again."
+
+show rai sad at center with dissolve:
+    matrixcolor BrightnessMatrix(-0.2)
 
 R "Hey."
 
-MCA "I thought he’d be with you."
+MCA "I thought he'd be with you."
 
 R "He left. He asked me to unlock the front door for him, and I did."
 
@@ -2654,7 +2668,9 @@ R "Sun isn't up yet. Guess he doesn't need the Lady's blessing."
 
 R "Makes you wonder what it was all for."
 
-MCA "I got to meet you."
+MCA happy "I got to meet you."
+
+show rai neutral
 
 "He smiles weakly."
 
@@ -2674,11 +2690,25 @@ R "See ya."
 
 #"Scene bg foyer"
 
+scene black with dissolve
+pause 0.1
+show entryway at goodsize with dissolve
+
 "The grand entryway."
 
 "Are you ready?"
 
 #"Scene bg window (Outside is brighter than inside.)"
+
+scene black with dissolve
+pause 0.1
+show garden at truecenter:
+    zoom 0.3
+show fed:
+    zoom 0.15
+    xpos(750) ypos(-150)
+    matrixcolor BrightnessMatrix(-1.0)
+with dissolve
 
 "It's a beautiful garden. Same as it was when you arrived."
 
