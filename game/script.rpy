@@ -899,7 +899,6 @@ A "Modern art is not garbage."
 
 "Her voice is soft, but it has an edge. Like she's stating a fact. I jump in to save Rai from any further controversial opinions."
 
-show rai neutral
 show ann neutral
 
 MCF neutral "We could check that out as well."
@@ -920,27 +919,65 @@ show rai happy
 
 R "I want to show you the {i}cool{/i} stuff first."
 
+show rai meee
+
 "He shows us his key ring, which emits a nice metal sound as he makes the keys jingle."
 
 R "Including some things only I have the ticket to."
 
+scene black with dissolve
+pause 1.0
+
 "We follow him as he picks a direction for our tourless tour through the villa; he ends up picking the right."
+
+show chimney at goodsize with dissolve
 
 "As promised, this part of the villa is kept close to its original glory."
 
+scene black with dissolve
+pause 0.1
+show bathroom at truecenter with dissolve
+
 "We enter a few rooms, one after the other, and it's pretty easy to guess from the furniture what the original purpose of each room would have been."
+
+scene black with dissolve
+pause 0.1
+show livingroom at truecenter with dissolve:
+    zoom 0.4
 
 "A couple of sofas, yellowed by time, placed around a low rococo coffee table. Probably some kind of living room."
 
+scene black with dissolve
+
 "A square room with a rectangular table in the center, and empty wooden bookshelves against each wall. Obviously the library."
+
+scene black with dissolve
+pause 0.1
+show bouquet at truecenter with dissolve:
+    zoom 0.4
 
 "The rooms follow one after the other, with no hallway or transition in between."
 
 "It's impressive, but I feel like walking through a movie set."
 
+scene black with dissolve
+pause 0.1
+show fancychair at truecenter with dissolve:
+    zoom 0.4
+
 "It's pretty obvious no one has sat on that chair over there in a long time. No one probably will ever again."
 
+scene black with dissolve
+pause 0.1
+show china at top with dissolve:
+    zoom 0.7
+
 "What makes it exciting, like Raimondo had promised, is doing this at night."
+
+scene black with dissolve
+pause 0.1
+show dove at truecenter with dissolve:
+    zoom 0.7
 
 "It's like we're crossing boundaries we were not supposed to cross."
 
@@ -956,9 +993,15 @@ R "Including some things only I have the ticket to."
 
 "Raimondo finally stops all of a sudden, and I realize Anna hasn't spoken in what feels like a long time."
 
+scene black with Dissolve(5.0)
+pause 0.1
+
 ############################################### ANNA POV ###############################################
 
 $ pov = "anna"
+
+show ladyportrait at top with dissolve:
+    zoom 0.4
 
 "A large family portrait hangs in a sitting room. There are other paintings around, but this one—this one
 is {i}displayed{/i}."
@@ -978,66 +1021,77 @@ but not quite touching."
 
 "An attendant."
 
-MCA "Who are they?"
+MCA side "Who are they?"
 
 #"Show Raimondo"
 
+show rai at left:
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
+
 R "Giuditta and Ferdinand. The Lady and Lord von Radetz."
+
+show fed concerned at right:
+    xzoom -1.0
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
 
 F "Lady and Lord?"
 
-#"Show raimondo smile"
+show rai happy
 
 R "The Lady is more important."
 
-R "She was once Giuditta the seamstress, from a family of artisans—what used to be the middle class
-back then."
+show rai neutral
+hide fed with dissolve
 
-R "On account of her being a woman, she was never the face of the family business, but one day she
-got some high-profile work for the von Radetzes."
+R "She was once Giuditta the embroideress, from a family of needleworkers—what used to be the middle class back then."
 
-R "She wasn't even their first choice: her father had fallen ill from improperly cooked meat, her brother 
-was off visiting his wife's family."
+R "She was never the face of the family business—her father and brother were more well-known before this—but one day she got some 
+high-profile work for the von Radetzes."
 
-R "But the von Radetzes had a sewing emergency."
+R "She wasn't even their first choice: her father had fallen ill, her brother was off visiting his wife's family."
 
-R "The family tapestry had been ruined by one of the younger von Radetz children, and needed
-restoring before the Archbishop's visit the next day."
+R "But the von Radetzes had an embroidery emergency."
 
-R "They couldn't wait for the father to get better, or for the brother to come back to town."
+R "An elaborate wall hanging depicting the birth of Jesus had been ruined by one of the young children, and needed restoring before the 
+Archbishop's visit the next day."
+
+R "We're talking golden threads and gemstones here, by the way. Fancy-ass wall hanging."
+
+R "Anyways, they couldn't wait for Giuditta's father to get better, or for her brother to come back to town."
 
 R "So they settled, begrudgingly, for Giuditta."
 
-R "She stayed here all night fixing the tapestry."
+R "She stayed here all night fixing it."
 
-R "And during the night, the eldest son, Ferdinand, couldn't sleep, and he found her at work."
+R "During the night, the eldest son, Ferdinand, couldn't sleep, and he found her at work."
 
-R "She told him stories as she sewed. One after the other, until the sun came up and the tapestry was
-finished."
+R "She told him stories as she sewed. One after the other, until the sun came up and the embroidery was complete."
 
-R "He was so captivated that, come the morning, he presented her to his parents as his wife-to-be."
+R "He was so captivated that that very day he presented her to his parents as his bride-to-be."
 
-R "And so Giuditta the seamstress became Giuditta the lady."
+R "And so Giuditta the embroideress became Giuditta the lady."
 
 "A veritable Cinderella story. You can see why people come here to wish for love."
 
-R "In reality, Ferdinand marrying a commoner caused a bit of a scandal back then, but the locals found
-it very inspirational."
+R "In reality, Ferdinand marrying a commoner caused a bit of a scandal back then, but the locals found it very inspirational."
 
-R "All accounts indicate the von Radetz family enjoyed a long-lasting popularity after that union. Even
-when the Habsburgs didn't."
+R "All accounts indicate the von Radetz family enjoyed a long-lasting popularity after that union. Even when the Habsburgs didn't."
 
-R "The tapestry was unfortunately lost in a fire, but according to the records…"
-
-R "Blah blah"
-
-R "Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah" #smaller and smaller
-
-#"Fade"
+R "The wall hanging was unfortunately lost in a fire, but according to the records…"
 
 ############################################### FEDE POV ###############################################
 
 $ pov = "fede"
+
+R "Blah blah"
+
+R "Blah blah blah blah blah blah blah blah blah {size=30}blah blah blah blah blah blah blah blah blah {/size}{size=20}blah blah blah blah blah blah blah blah blah {/size}{size=10}blah blah blah blah blah blah blah blah blah {/size}{size=5}blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah{/size}" #smaller and smaller
+
+R "{cps=0}{size=5}Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah{/size}{/cps}{w=5.0}{nw}" #smaller and smaller
+
+scene black with Dissolve(5.0)
 
 N "It was the first week of the second year of university."
 
@@ -1096,45 +1150,65 @@ A "{i}Oh, this is Verdi.{/i}"
 
 FFB "Do you like opera?"
 
-"She did, in fact."
+N "She did, in fact."
 
-"Even though I'd always had a fascination with music, I knew very little about it."
+N "Even though I'd always had a fascination with music, I knew very little about it."
 
-"My parents had tried to get me to learn the piano, but I never went beyond a few basic lessons."
+N "My parents had tried to get me to learn the piano, but I never went beyond a few basic lessons."
 
-"And I knew nothing about opera, or classical music in general. But eventually, I got her to invite me."
+N "And I knew nothing about opera, or classical music in general. But eventually, I got her to invite me."
 
-"Or, I guess I invited her, but I asked her to pick the play."
+N "Or, I guess I invited her, but I asked her to pick the play."
 
-"I loved it."
+N "I loved it."
 
-"It was Verdi, of course."
+N "It was Verdi, of course."
+
+pause
 
 R "Right, Fede?"
 
-MCF "What?"
+F "What?"
 
-#"Show raimondo smile"
+show ladyportrait at top:
+    zoom 0.4
+show rai happy at left:
+    matrixcolor BrightnessMatrix(-0.2)
+show ann concerned at right:
+    xzoom -1.0
+    matrixcolor BrightnessMatrix(-0.2)
 
 R "Just messing with you."
 
 #"show raimondo neutral"
+show rai neutral
 
 R "I forgot that you two aren't usually up this late. You should hit your second wind soon."
 
 R "We can check out the women's exhibits next then."
 
+scene black with Dissolve(5.0)
+pause 0.1
+
 ############################################### ANNA POV ###############################################
 
 $ pov = "anna"
 
-"---"
+show wardrobe at truecenter with dissolve:
+    zoom 0.4
+
+"…"
 
 "Raimondo is right: the lack of sleep is catching up with you."
 
 "“Women Through History” threatens to bore the both of you into napping standing up."
 
 "You're glad the exhibit exists, of course, but so much of it is text on placards."
+
+scene black with Dissolve(5.0)
+pause 0.1
+show womenthru at truecenter with dissolve:
+    zoom 0.4
 
 "You starts recognizing names when it reaches the modern day, but otherwise nothing sticks with you."
 
@@ -1152,7 +1226,11 @@ them, especially this one."
 
 "There's a quiet between you."
 
-MCA "Hey, Raimondo."
+MCA side happy "Hey, Raimondo."
+
+show rai neutral at center:
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
 
 R "Yeah?"
 
@@ -1160,14 +1238,15 @@ MCA "Are you wishing for money or love?"
 
 R "Who's to say I'm not wishing for a third thing?"
 
-MCA "You're just like Fede."
+MCA concerned "You're just like Fede."
+
+show rai happy
 
 R "I'll take that as a compliment."
 
-MCA "How did you two meet?"
+MCA happy "How did you two meet?"
 
-R "We've always been going to the same schools, all the way back since elementary school. Small
-town, you know?"
+show rai neutral
 
 R "We've always been going to the same schools, all the way back since elementary school. Small
 town, you know?"
@@ -1182,13 +1261,19 @@ MCA "I know the feeling. I used to play too. You can get really close with peopl
 
 R "Cool. What position did you play?"
 
-#"Show fede"
+show rai:
+    linear 2.0 xalign 0.0
+pause 0.1
+show fed at right:
+    xzoom -1.0
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
 
 F "I didn't know you used to play volleyball."
 
 #"Show anna serious"
 
-MCA "It was a long time ago."
+MCA neutral "It was a long time ago."
 
 F "Why'd you stop?"
 
@@ -1198,7 +1283,12 @@ MCA "Why does anyone stop, Federico?"
 
 #"Hide r"
 
+scene black with dissolve
+
 "You step into the next exhibit."
+
+show weddingdress at truecenter with dissolve:
+    zoom 0.5
 
 #"Scene bg dress"
 
@@ -1227,6 +1317,10 @@ R "They're beetle shells."
 
 "You turn to Raimondo."
 
+show rai neutral at left:
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
+
 R "Sorry. Didn't mean to spook you."
 
 "Had you jumped? Turned too fast?"
@@ -1237,46 +1331,66 @@ R "Originally all the way from India. Colonialism and all that."
 
 R "But they're pretty, aren't they?"
 
-MCA "Can you imagine wearing something like that? Little bug pieces all over your skirt?"
+MCA side "Can you imagine wearing something like that? Little bug pieces all over your skirt?"
 
 "{i}But they're pretty, aren't they?{/i}"
 
+show rai gag
+
 R "I think I'd rather get married in a suit."
 
-MCA "Married?"
+MCA concerned "Married?"
+
+show rai happy meee
 
 R "Hey, I can always move to a city with a civil union registry."
 
 "This doesn\'t answer your question."
 
+show rai neutral base
+
 R "Oh. Yeah, this is her wedding dress. They weren't all white until fairly recently in the broad history of
 things."
+
+show rai happy
 
 R "I'm surprised you didn't know."
 
 "There's a sting to this, but he probably doesn't mean anything by it."
 
-MCA "I guess sometimes you assume that things are always like this. The way they are now, I mean."
+MCA concerned "I guess sometimes you assume that things are always like this. The way they are now, I mean."
+
+show rai neutral
 
 R "That's history for you."
 
 "You shine your flashlight over the nearby placards. A brief history of wedding dresses, beetle elytra embroidery, imported silks."
 
-MCA "Where did Federico go?"
+MCA neutral "Where did Federico go?"
+
+show rai mad
 
 R "He's chilling out by the entrance to “Women Through History”."
 
-MCA "I'm not mad."
+MCA concerned "I'm not mad."
+
+show rai neutral
 
 R "Didn't say you were."
 
-"Sting."
+"Sting. "
 
-"Twice is a coincidence." #MISTAKE?
+extend "Twice."
 
 MCA "We can head back."
 
+scene black with dissolve
+pause 0.1
+
 ############################################### FEDE POV ###############################################
+
+show wardrobe at truecenter with dissolve:
+    zoom 0.4
 
 $ pov = "fede"
 
@@ -1285,9 +1399,22 @@ lady's quarters."
 
 "It's a small room with jewelry displays past velvet cordons. Rai moves them to let us in."
 
+show rai neutral meee at left:
+    matrixcolor BrightnessMatrix(-0.2)
+show ann neutral at right:
+    xzoom -1.0
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
+
 R "I'm going first."
 
+hide rai with dissolve
+
 "He uses one of his keys (one of the smaller ones this time), to slide a glass. He grabs a necklace with a big pendant."
+
+show rai neutral meee at left:
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
 
 R "This one's actually from before she became Lady."
 
@@ -1295,15 +1422,26 @@ R "Maybe that makes it lucky."
 
 "There's something on his face again. I can feel it, even in the dark."
 
+show rai closed
+
 "He closes his eyes dramatically, then opens them after a couple of seconds."
+
+show rai open
 
 R "Who's next?"
 
-MCF "Ladies first."
+MCF neutral "Ladies first."
+
+show rai happy meee
 
 R "I already went."
 
+show ann concerned
+show rai neutral base
+
 "Anna doesn't entertain the joke."
+
+show ann closed openpaw
 
 "She holds the pendant to her chest and looks the least confident I've ever seen her, though I'm not
 sure if it's the darkness."
@@ -1312,15 +1450,25 @@ sure if it's the darkness."
 
 "Or worse: she is, and this is how unsure she looks."
 
+show ann open
+
 "I walk over past the cordons and take the pendant she offers."
+
+show ann base
 
 "It's heavy. Gold, maybe."
 
+scene black with dissolve
+
 "I close my eyes and wish."
+
+$ _window_hide()
 
 centered "That after everything I have to tell her tonight, she'll stay with me."
 
-#timeskip
+pause 5.0
+
+$ _window_show()
 
 "Eventually we get to the point where even Rai's enthusiasm is flagging."
 
@@ -1336,15 +1484,28 @@ individually wrapped cookies like you might find in a convenience store."
 
 "We wander—all three of us, sometimes, or two of us in various combinations."
 
+show ann at center:
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
+
 "When I'm alone with Anna, I think about telling her, but I keep putting it off until we split up or Rai is
 back."
+
+hide ann with dissolve
+show rai happy at center:
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
 
 "When I'm alone with Rai, he takes my mind off of it with talk of new games, stories of crazy tourists,
 what our old classmates have been up to. But it can only last so long."
 
+hide rai with dissolve
+
 "When I'm alone with myself… that's the worst."
 
 #"Scene bg anteroom"
+show anteroom at truecenter with dissolve:
+    zoom 0.5
 
 "It's the three of us now in a small anteroom with no windows to the outside."
 
@@ -1356,39 +1517,52 @@ this, and tonight he has a new subject."
 
 "I clear my throat."
 
-MCF "I—uh."
+MCF concerned "I—uh."
+
+show rai neutral at left:
+    matrixcolor BrightnessMatrix(-0.2)
+show ann neutral at right:
+    xzoom -1.0
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
 
 #"Show raimondo"
 
 #"Show anna"
 
-MCF "I want to show you something."
+MCF neutral "I want to show you something."
 
 R "What'd you find?"
 
-MCF "Just Anna, actually."
+MCF concerned "Just Anna, actually."
 
 "I'm waiting for the remark about us going off together. The quip."
 
 "It doesn’t come."
 
+show rai sad
+
 R "‘Kay."
+
+show ann happy
 
 A "Sure."
 
 "She marks her place with a bookmark and sets it down on the seat."
 
-#"Fade"
+scene black with dissolve
 
 #"[f has flashlight, dunno how or if to indicate this before he puts it down]"
 
-A "It's an interesting story, but every time this Bianca is in the same room as the protagonist, it's like—"
+pause 5.0
+
+MCA side neutral "It's an interesting story, but every time this Bianca is in the same room as the protagonist, it's like—"
 
 "I don\'t know where I'm going. Just walking."
 
 "Carpet. Wood. Tile. Doorways."
 
-A "—of why he would do it. Remember, the ex-wife's been out of the picture for fifteen years at this point, and—"
+MCA "—of why he would do it. Remember, the ex-wife's been out of the picture for fifteen years at this point, and—"
 
 "Why did I say “I want to show you something”?"
 
@@ -1398,9 +1572,15 @@ A "—of why he would do it. Remember, the ex-wife's been out of the picture for
 
 "I almost jump when Anna touches my hand."
 
-A "Fede, what's going on?"
+MCA concerned "Fede, what's going on?"
 
-"She must know. She must know I don\'t know what I\'m doing."
+"She must know. She must know I don't know what I'm doing."
+
+show livingroom at truecenter:
+    zoom 0.4
+show ann openpaw at center:
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
 
 "We stop in an entertainment room with lots of seats and a couple fancy dressers."
 
