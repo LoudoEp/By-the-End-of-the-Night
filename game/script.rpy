@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 ################################################################################
 
@@ -19,44 +19,48 @@ define N = Character(None, what_italic = True)
 
 ### FEDERICO ###
 
-define F = Character(_("Federico"), color ="#fff", what_prefix='"', what_suffix='"')
-define MCF = Character(_("Federico"), color ="#fff", what_prefix='"', what_suffix='"', image="fed")
-define FFB = Character(_("Federico"), color ="#fff", what_prefix='"', what_suffix='"', what_italic = True)
+define F = Character(_("Federico"), color ="#fff", what_prefix='“', what_suffix='”')
+define MCF = Character(_("Federico"), color ="#fff", what_prefix='“', what_suffix='”', image="fed")
+define FFB = Character(_("Federico"), color ="#fff", what_prefix='“', what_suffix='”', what_italic = True)
 
 layeredimage fed:
     zoom 0.45 yoffset 550
     group body:
         attribute base default:
             "images/Federico/Base.png"
-        attribute meee:
-            "images/Federico/Meee.png"
     group expressions:
         attribute neutral default:
             "images/Federico/Neutral.png"
-        attribute annoyed:
-            "images/Federico/Annoyed.png"
         attribute concerned:
             "images/Federico/Concerned.png"
-        attribute gag:
-            "images/Federico/Gag.png"
         attribute happy:
             "images/Federico/Happy.png"
-        attribute mad:
-            "images/Federico/Mad.png"
+        attribute sad:
+            "images/Federico/Sad.png"
+        attribute turned:
+            "images/Federico/Turned.png"
+    group eyes:
+        attribute open default:
+            Null()
+        attribute closed:
+            Null()
 
 image side fed = LayeredImageProxy("fed")
 
+################################################################################
+
 ### ANNA ###
 
-define A = Character(_("Anna"), color ="#fff", what_prefix='"', what_suffix='"')
-define MCA = Character(_("Anna"), color ="#fff", what_prefix='"', what_suffix='"', image="ann")
+define A = Character(_("Anna"), color ="#fff", what_prefix='“', what_suffix='”')
+define MCA = Character(_("Anna"), color ="#fff", what_prefix='“', what_suffix='”', image="ann")
+define AFB = Character(_("Anna"), color ="#fff", what_prefix='“', what_suffix='”', what_italic = True)
 
 layeredimage ann:
     xzoom -1.0 zoom 0.45 yoffset 550
     group body:
         attribute base default:
             "images/Anna/Base.png"
-        attribute open:
+        attribute openpaw:
             "images/Anna/Open.png"
         attribute side:
             "images/Anna/Side.png"
@@ -71,16 +75,23 @@ layeredimage ann:
             "images/Anna/Happy.png"
         attribute mad:
             "images/Anna/Mad.png"
-        attribute vulnerable:
-            "images/Anna/Vulnerable.png"
+        attribute sad:
+            "images/Anna/Sad.png"
+    group eyes:
+        attribute open default:
+            Null()
+        attribute closed:
+            Null()
 
 image side ann = LayeredImageProxy("ann")
 
+################################################################################
+
 ### RAIMONDO ###
 
-define R = Character(_("Raimondo"), color ="#fff", what_prefix='"', what_suffix='"')
-define MCR = Character(_("Raimondo"), color ="#fff", what_prefix='"', what_suffix='"', image="rai")
-define RFB = Character(_("Raimondo"), color ="#fff", what_prefix='"', what_suffix='"', image="pastrai", what_italic = True)
+define R = Character(_("Raimondo"), color ="#fff", what_prefix='“', what_suffix='"')
+define MCR = Character(_("Raimondo"), color ="#fff", what_prefix='“', what_suffix='"', image="rai")
+define RFB = Character(_("Raimondo"), color ="#fff", what_prefix='“', what_suffix='"', image="pastrai", what_italic = True)
 
 layeredimage rai:
     zoom 0.45 yoffset 550
@@ -94,20 +105,32 @@ layeredimage rai:
             "images/Raimondo/Neutral.png"
         attribute annoyed:
             "images/Raimondo/Annoyed.png"
-        attribute concerned:
-            "images/Raimondo/Concerned.png"
+        attribute sad:
+            "images/Raimondo/Sad.png"
         attribute gag:
             "images/Raimondo/Gag.png"
         attribute happy:
             "images/Raimondo/Happy.png"
         attribute mad:
             "images/Raimondo/Mad.png"
+    group eyes:
+        attribute open default:
+            Null()
+        attribute closed:
+            Null()
 
 image side rai = LayeredImageProxy("rai")
 
 image side pastrai:
     zoom 0.45 yoffset 550
     "images/Raimondo/Past1.png"
+
+################################################################################
+
+### POLYHEDRON ###
+
+define Poly = Character(_("Polyhedron"), color ="#fff", what_prefix='“', what_suffix='"')
+
 
 ################################################################################
 
@@ -125,6 +148,9 @@ image bglight:
 image chlight:
     zoom 2.0
     "images/chlight.png"
+image shed = "images/unsplash-shed-ricky-kharawala.jpg"
+image nightfield = "images/unsplash-nightfield-artur-oliinyk.jpg"
+image vase = "images/unsplash-vase-kamilla-isalieva.jpg"
 
 ################################################################################
 
@@ -134,7 +160,10 @@ label start:
 
 ############################################### ANNA POV ###############################################
 
-#"Scene bg countryside"
+stop music fadeout 3.0
+pause 5.0
+#play music chat volume 0.3
+scene car at goodsize with Dissolve(5.0)
 
 "According to Federico, the air conditioning in his car struggles every summer."
 
@@ -147,11 +176,17 @@ faces."
 
 "The heat makes you sleepy, and the rolling hills of the countryside are hypnotising."
 
+pause 1.0
+
 "Does this friend of his make this drive every day?"
 
-MCA side "What kind of person is he?"
+"What kind of person is he?"
 
-MCF "Raimondo, from high school."
+pause 1.0
+
+"Raimondo, from high school."
+
+pause 1.0
 
 "You haven't met any of his friends from his hometown before. He doesn't talk about them much."
 
@@ -165,15 +200,21 @@ MCF "You see it?"
 "You sit up and look forward. Off to the left, in the distance, the trees become orderly. There are
 flowers, and a large, rectangular building beyond it."
 
-MCF "You aren't excited?"
+MCF concerned "You aren't excited?"
 
-MCA "No, I'm… I'm just tired."
+MCA side "No, I'm… I'm just tired."
 
-MCA "It's big."
+scene black with dissolve
+pause 0.1
+scene approaching at truecenter:
+    zoom 0.5
+with dissolve
 
-MCF "Right?"
+pause 2.0
 
-#"Scene bg garden/villa [closer]"
+MCA side "It's big."
+
+MCF neutral "Right?"
 
 "You've come across these kinds of places in the nooks and crannies of Padua: abandoned villas of the
 long-dead well-to-do."
@@ -181,6 +222,8 @@ long-dead well-to-do."
 "But here there's so much space."
 
 "Carefully trimmed trees and rows of flower beds line the road to the main building."
+
+scene black with dissolve
 
 "Federico turns off into a small gravel field—the parking lot."
 
@@ -194,17 +237,28 @@ long-dead well-to-do."
 
 "But he is parking in a particularly out-of-the-way spot."
 
+pause 1.0
+
 MCF "You ready?"
 
-MCA "…"
+MCA side concerned "…"
 
 MCF "It'll be fine."
 
-MCA "All right."
+pause 1.0
 
-#"Scene bg parking lot"
+MCA neutral "All right."
 
-MCA "Do you know what Raimondo is wishing for?"
+scene parking at truecenter
+with dissolve
+
+pause 5.0
+
+MCA side "Do you know what Raimondo is wishing for?"
+
+show fed at center:
+    xzoom -1.0
+with dissolve
 
 F "No."
 
@@ -214,11 +268,11 @@ F "Not everything, no."
 
 F "It's like birthday wishes. You don't announce them before you blow out the candles."
 
-MCA "Hm."
+MCA concerned "Hm."
 
 F "If I had to guess, it could be finding a boyfriend? Pickings are pretty slim out here."
 
-MCA "He can't go to the city for that?"
+MCA neutral "He can't go to the city for that?"
 
 F "Well. I don't know."
 
@@ -231,67 +285,98 @@ were secret."
 
 "This could be your wish. Slow evening walks with Federico, just the two of you and the crickets. A little night music."
 
-#"Scene villa ext front"
+scene black with dissolve
+pause 0.1
+scene meetup at center:
+    xalign 1.0 zoom 0.5
+with dissolve
 
 "But before long, you reach the great double doors to the Villa von Radetz. A wolf in a hoodie sits on the steps, reading a pocket-sized paperback."
 
 "He gets up to greet you."
 
-#"Show raimondo happy"
+show rai happy at center:
+    yoffset -700 zoom 0.4 xzoom -1.0
+show fed at center:
+    xoffset -1300 yoffset -700 zoom 0.4
+with dissolve
 
 R "Hey, Fede!"
 
-"…You didn't know they made hoodies in that pattern."
+show fed neutral
 
-#"Show federico"
+"…You didn't know they made hoodies in that pattern."
 
 F "Rai!"
 
+show fed happy:
+    linear 3.0 xoffset -300
+$ renpy.pause (2.99,hard=True)
+
 "Federico lets go of your hand to do some kind of boy handshake with Raimondo."
 
-#"Show raimondo neutral"
+show rai neutral
 
 F "This is Anna."
 
+show fed neutral
+camera:
+    xalign 0.5 yalign 0.5
+    linear 5.0 zoom 1.5
+
 F "Anna, this is Raimondo. My best friend."
 
-MCA "Nice to meet you."
+MCA happy side "Nice to meet you."
 
 R "You too."
 
-R "Anyways, we can't go in yet. There's a cleaning lady who's here until ten on Wednesdays."
+pause 2.0
 
-MCA "Ten o'clock?"
+show rai happy
 
-F "I'm assuming they don't want her to be cleaning while the visitors are here."
+R "So, I assume Federico's already familiarized you with the story of Lady Giuditta?"
 
-MCA "But the villa's so far from everything."
+MCA "The vigil, right? We stay until sunrise and then…?"
 
-"They look at you. They don't get it."
+show rai mad
 
-MCA "You'd have to walk to the parking lot in the dark."
+R "The vigil is based on the {i}legend{/i} of Lady Giuditta. But okay."
 
-MCA "Alone."
+show rai neutral
 
-#"Show raimondo big_grin"
+R "According to the legends, if you stay the night inside the villa all the way until sunrise, Lady Giuditta
+will grant your wish."
 
-R "Ah! But she's not alone."
+R "People wish for a lot of things, but it's mostly love and money."
 
-R "I'm right here!"
+MCA neutral "Why?"
 
-"…"
+R "Because of the {i}real{/i} story that I'll tell you later."
 
-"Okay."
+show rai happy
 
-#"Show raimondo neutral"
+R "Anyways, we'll go touch her jewelry, make our wishes, and then her spirit will appear in her old
+dressing room!"
 
-MCA "So…."
+show fed happy
+
+F "Stop bullshitting, Rai."
+
+show fed neutral
+
+R "We don't know that her spirit {i}won't{/i} appear."
+
+MCA concerned "Don't you stay overnight every night?"
+
+R "Yeah, but I don't fondle her jewelry. Besides, you need at least two people."
+
+show rai neutral
+
+R "Anyways, we can't go in yet."
 
 R "I can show you my digs in the meantime."
 
-F "Lead the way."
-
-#"Scene bg shed_ext"
+scene black with dissolve
 
 "He takes you to something like a gardening shed around the side of the villa. You can't tell if it's part of
 the original construction, but it's clearly not {i}new{/i}."
@@ -305,6 +390,10 @@ moment you are alone."
 
 #"You step into the darkness."
 
+scene black with Dissolve(5.0)
+
+camera
+
 ############################################### FEDE POV ###############################################
 
 $ pov = "fede"
@@ -314,6 +403,8 @@ $ pov = "fede"
 "I can tell from the sound of Rai's steps that he slows down almost immediately."
 
 "And then with a click, I'm blinded by the light."
+
+show shed at goodsize
 
 "A bare incandescent bulb dangles from the low ceiling. It was clearly intended to be filtered by some
 sort of lampshade."
@@ -330,6 +421,9 @@ villa itself."
 "I don't dare look back towards Anna. I had hyped up this place so much, and now it feels like letting
 her see my messy bedroom once again."
 
+show rai happy
+with dissolve
+
 R "Welcome to my kingdom!"
 
 "Rai sounds genuinely proud of this junkyard."
@@ -339,9 +433,16 @@ R "Welcome to my kingdom!"
 "Before I started dating Anna, I didn't know how gross something could look through the eyes of
 adults, like we're supposed to be." #TODO
 
-MCF "These are your digs?"
+MCF concerned "These are your digs?"
+
+show rai neutral
 
 R "Yeah. I change here, keep my stuff here. We don't have storage lockers in the main building."
+
+show rai:
+    linear 1.0 xalign 0.0
+show ann concerned at right with dissolve:
+    xzoom -1.0
 
 A "At least you have a place to sit."
 
@@ -350,24 +451,45 @@ faint praise, he doesn't show it."
 
 "I try to speak to him in a language he'll understand."
 
-MCF "I hope this isn't what they're showing the tourists. We didn't pay for no ticket and I still feel like we're
+MCF happy "I hope this isn't what they're showing the tourists. We didn't pay for no ticket and I still feel like we're
 getting ripped off."
+
+show rai annoyed
 
 R "Cool your jets, the show hasn't started."
 
+show rai neutral
+
 R "And besides"
+
+show rai:
+    linear 1.0 yalign 0.5
+$ renpy.pause (1.0,hard=True)
+show rai:
+    linear 1.5 yalign 1.0
 
 "He grabs something from the floor."
 
+show rai happy
+
 R "Here's something to make up for the lame start."
+
+show rai neutral
+show ann concerned
 
 "He hands us each a bottle of beer."
 
 #clinking sound
+pause 1.0
 
-MCF "Mmm, warm beer."
+MCF neutral "Mmm, warm beer."
+
+show rai annoyed
 
 R "Sorry, Your Majesty. As you can see, they don't provide us humble employees with a mini fridge."
+
+show rai happy
+show ann neutral
 
 R "Cheers!"
 
@@ -377,45 +499,44 @@ R "Cheers!"
 
 "Anna will have to live with it, for tonight at least."
 
-A "How much longer until ten?"
+A "Is there a reason why we're drinking here, of all places? Why don't we go inside?"
 
 "Rai cranes his neck toward a large, white clock on the opposite wall. I had just assumed it was broken."
 
-R "A few more minutes."
+R "A few more minutes. There's a cleaning lady who's here until ten on Wednesdays."
 
-R "I can tell you the story of Lady Giuditta."
+show ann sad
 
-A "In the storage shed?"
+A "Ten o'clock?"
 
-MCF "I agree. There'll be a better atmosphere inside the villa later."
+F "I'm assuming they don't want her to be cleaning while the visitors are here."
 
-A "The vigil, though. We stay until sunrise and then…?"
+A "But the villa's so far from everything."
 
-R "The vigil is {i}connected{/i} to the story of Lady Giuditta. But okay."
+show ann mad
 
-R "According to the legends, if you stay the night inside the villa all the way until sunrise, Lady Giuditta
-will grant your wish."
+"She makes a vague gesture in the direction of the door. I can tell by the way she's furrowing her brows, 
+she thinks Rai is being deliberately obtuse by not catching her drift."
 
-R "People wish for a lot of things, but it\'s mostly love and money."
+A "You'd have to walk to the parking lot in the dark."
 
-A "Why?"
+A "Alone."
 
-R "Because of the story that you two don\'t wanna hear until later."
+show ann concerned
 
-R "Anyways, we'll go touch her jewelry, make our wishes, and then her spirit will appear in her old
-dressing room!"
+R "Ah! But she's not alone."
 
-MCF "Stop bullshitting, Rai."
+show rai happy
 
-R "We don't know that her spirit {i}won't{/i} appear."
+R "I'm right here!"
 
-A "Don't you stay overnight every night?"
+"He points at himself with his beer bottle. From his proud smug grin, you would think he's actually rescuing women in the parking lot every other week."
 
-R "Yeah, but I don't fondle her jewelry. Besides, you need at least two people."
+"Anna just shakes her head, defeated."
 
-MCF "It's ten o'clock now."
+show rai neutral
 
-R "That it is. I'll go make a round of the place to make sure it's empty. You two can sit tight here."
+R "I'll go make a round of the place to make sure it's empty. You two can sit tight here."
 
 "I really don\'t want to be alone in this mess with Anna."
 
@@ -425,7 +546,12 @@ MCF "It {i}is{/i} dark now."
 
 R "I'll find you when I'm done."
 
-# timeskip
+scene black with dissolve
+pause 0.1
+show nightfield at goodsize
+show gagmoment at goodsize:
+    anchor(1.0,0.0) pos(-500,0)
+with dissolve
 
 "Such a pleasant night."
 
@@ -443,9 +569,14 @@ R "I'll find you when I'm done."
 
 "These are crickets."
 
+show ann concerned at center with dissolve:
+    matrixcolor BrightnessMatrix(-0.2)
+
 A "Is he coming back soon?"
 
 MCF "He's just being thorough. I'm sure the cleaning lady hasn't left yet."
+
+hide ann with dissolve
 
 "She turns her head away again."
 
@@ -453,15 +584,15 @@ MCF "Are you ok?"
 
 "I approach her and wrap my arm around her shoulders."
 
-A "Yes."
+MCA side neutral "Yes."
 
 "I give her time. Just like I learned from her."
 
-A "I don't know… This feels so stupid."
+MCA sad "I don't know… This feels so stupid."
 
 "I rub her shoulder in a reassuring way, fighting the urge to defend my idea."
 
-A "I didn't realize it would be this far out. And what we're doing is still illegal."
+MCA "I didn't realize it would be this far out. And what we're doing is still illegal."
 
 MCF "Well, the two things go well together, don't they? No one will see us."
 
@@ -481,11 +612,25 @@ MCF "Plus, I don't even know if this counts as illegal. Rai has the keys and he'
 
 "As if it was a sign from the divine providence, we finally see the red taillights of a vehicle driving away down the road we came from."
 
+show nightfield:
+    linear 2.0 xpos(2.0)
+pause 1.0
+show gagmoment at goodsize:
+    linear 2.0 xpos(1.0)
+
 R "So are you ready or what?"
 
 R "Geez, guys, I have nothing against straight people, but do keep it in the bedroom."
 
 #####
+
+scene black with dissolve
+pause 0.1
+show entrydoor at top with dissolve:
+    zoom 0.65
+pause 5.0
+show entrydoor:
+    linear (5.0) ypos(-1.0)
 
 "The doors are old and massive."
 
@@ -499,13 +644,21 @@ R "Geez, guys, I have nothing against straight people, but do keep it in the bed
 
 "Such a satisfying heavy sound. A modern lock would be far less dramatic."
 
-A "That's inconvenient that you have to do this every time with the old lock."
+MCA side "That's inconvenient that you have to do this every time with the old lock."
 
-R "Yep. I need to make sure this door stays lock at all times once I'm on shift. Can't have anyone sneaking inside."
+MCR "Yep. I need to make sure this door stays lock at all times once I'm on shift. Can't have anyone sneaking inside."
 
-R "To be honest, this trusty rusty door does half of the job for me."
+MCR happy "To be honest, this trusty rusty door does half of the job for me."
+
+scene black with dissolve
 
 "He pushes the doors with both hands."
+
+show entryway at goodsize
+show rai at center:
+    matrixcolor BrightnessMatrix(-0.5)
+    zoom 0.4 yoffset -700
+with dissolve
 
 R "Madame and monsieur, welcome to Maison von Radetz."
 
@@ -524,12 +677,14 @@ A "Where's the light?"
 "For a moment I worry Anna might be frightened. Instead, I see her tentatively stepping deeper into the room."
 
 # light
+show rai at center:
+    matrixcolor BrightnessMatrix(-0.2)
 
 "A flashlight."
 
 R "Here. I have another one."
 
-MCF "Really, man? Are there no normal lights?"
+MCF concerned "Really, man? Are there no normal lights?"
 
 R "Of course there are, if you want to broadcast to everyone in a few miles radius someone is still inside."
 
@@ -537,21 +692,35 @@ R "Sorry, but these will have to do."
 
 "I feel stupid for having asked. Rai hands me the other flashlight, before going back to close the door again."
 
-MCF "Here, Anna, you can have this one."
+MCF neutral "Here, Anna, you can have this one."
+
+show ann base happy at left:
+    matrixcolor BrightnessMatrix(-0.2) xzoom -1.0
+with dissolve
 
 A "A proper gentleman."
 
 "She sounds genuinely pleased and I'm happy to have made her happy."
 
+show rai gag meee
+
 "Rai, on the other hand, fakes a gagging motion while Anna is shining her light in another direction."
 
 "And I'm happy to reciprocate his masculine sign of affection with a friendly middle finger."
 
+show rai neutral
+pause 0.5
+show rai base
+
 A "It's fancier on the inside."
+
+show ann:
+    xzoom 1.0
+with dissolve
 
 "She turns to me."
 
-A "Maybe weI should come back and visit it properly. It must be even more lovely during the day."
+A "Maybe we should come back and visit it properly. It must be even more lovely during the day."
 
 R "I don't know. I think the night adds to the charm."
 
@@ -559,9 +728,17 @@ R "Don't you think, Fede?"
 
 MCF "I'll have to side with Anna. My ma brought me here when I was little, and I remember all the bright colors making an impression on me."
 
-MCF "Now, everything feels cold."
+MCF concerned "Now, everything feels cold."
 
 "“Dead,” is what I want to say, but I want to steer clear of the topic for now."
+
+show rai annoyed
+
+pause 2.0
+
+show rai neutral at center:
+    matrixcolor BrightnessMatrix(-0.2)
+    zoom 0.4 yoffset -700
 
 "Rai surprises me with an annoyed look that disappears as quickly as it came."
 
@@ -573,9 +750,13 @@ R "Now it's the best time to visit because we get to do what we like! No pesky c
 
 R "Follow me, I'll show you two around."
 
+scene black with dissolve
+
 "Rai's light walks with confidence towards a large flight of stairs."
 
-MCF "So much for no pesky tour." #make it small sized
+MCF concerned "So much for no pesky tour."
+
+show vase at goodsize with dissolve
 
 "I turn towards Anna's light, which is still pointed towards a vase resting on a half pillar column behind a glass in the hallway."
 
@@ -583,7 +764,11 @@ MCF "So much for no pesky tour." #make it small sized
 
 MCF "Everything ok? Should we follow him?"
 
-A "Yeah."
+MCA side happy "Yeah."
+
+scene black with dissolve
+pause 0.1
+show grandstairs at goodsize with dissolve
 
 "Raimondo's light has disappeared above the stairs. He must have reached the next floor already."
 
@@ -591,21 +776,29 @@ A "Yeah."
 
 "But I doubt I would be able to do it while dragging Anna along."
 
-A "You know, this is romantic."
+MCA side happy "You know, this is romantic."
 
 "Now that she says it, I could picture this same scene taking place with wedding music and formal clothing."
 
-A "Makes me wish it'd be just the two of us."
+MCA sad "Makes me wish it'd be just the two of us."
 
 "She whispers it, as if to herself. Still it stops me dead in my tracks, and I perk my ears, worried her words might echo their way to Raimondo."
 
 "She shines her light in my direction."
 
-A "I didn't mean it like that."
+MCA neutral "I didn't mean it like that."
 
-A "Your friend seems fine. Really."
+MCA happy "Your friend seems fine. Really."
 
 "She squeezes my hand in reassurance. She resumes her ascent, and I follow her with heavier steps."
+
+scene black with dissolve
+pause 1.0
+show hallway at center:
+    zoom 0.5
+show rai at center:
+    matrixcolor BrightnessMatrix(-0.2)
+with dissolve
 
 "When we reach the landing, we find Raimondo waiting."
 
@@ -613,11 +806,21 @@ R "Finally, you slowpokes."
 
 R "Do I wanna know what took you so long?"
 
+show rai:
+    linear 2.0 xalign (0.0)
+pause 1.0
+show ann happy at right with dissolve:
+    matrixcolor BrightnessMatrix(-0.2) xzoom -1.0
+
 "Anna responds before I can think of an excuse."
 
 A "You were right. This place is rather charming."
 
+show rai happy
+
 R "Oh, you ain't seen nothing yet. Here's where they keep all the cool exhibits."
+
+show rai neutral
 
 "He points his light towards the wall. There's a placard with directions, so I get close enough to read it."
 
@@ -625,17 +828,30 @@ R "Oh, you ain't seen nothing yet. Here's where they keep all the cool exhibits.
 
 R "This way…"
 
-"He points to the right of the stairs."
+show rai:
+    linear 2.0 xalign (1.0)
+show ann:
+    linear 2.0 xalign (0.0)
+pause 2.1
+show ann:
+    xzoom 1.0
+
+"He turns to the right of the stairs."
 
 R "Is where they keep all the interesting originals of the von Radetz family. Things that belonged to them, recreation of how the rooms looked, that kind of stuff."
 
 R "And this way…"
 
-"He turns towards a smaller entrance."
+show rai meee
+
+"He points towards a smaller entrance."
 
 R "It's the lady's private quarters. They have an exhibition about “Women Through History”."
 
 R "It was supposed to be temporary, but they've kept it for five years straight, so I think it's permanent by now."
+
+show ann neutral
+show rai base
 
 A "Oh? How… topical."
 
@@ -645,13 +861,17 @@ R "It starts out nice enough, but the last few rooms about “modern women” st
 
 MCF "How bad could it—"
 
+show rai mad
+
 R "The last room is about “Women CEOs”."
 
-MCF "Ah…"
+MCF concerned "Ah…"
+
+show rai neutral
 
 "I point at the placard next to me."
 
-MCF "What about that other arrow?"
+MCF neutral "What about that other arrow?"
 
 "It's hard to make the words out, but I can see there's a third arrow besides “left” and “right”."
 
@@ -661,33 +881,48 @@ R "That's the temporary exhibition. {i}Really{/i} temporary, I mean."
 
 R "Again, it's a bit of an eyesore. What was it again?"
 
+show rai:
+    xzoom -1.0
+
 "He approaches the placard and squints his eyes to read it, like I was attempting to do. But unlike me, he has a flashlight."
 
 R "“Threads of Dreams: The Sense of Whimsy of the Modern Man.”"
 
+show rai gag meee
+
 R "Modern art garbage."
+
+show rai mad base
+show ann concerned
 
 A "Modern art is not garbage."
 
 "Her voice is soft, but it has an edge. Like she's stating a fact. I jump in to save Rai from any further controversial opinions."
 
-F "We could check that out as well."
+show rai neutral
+show ann neutral
+
+MCF neutral "We could check that out as well."
 
 "I don't know I would have given the idea a second thought myself, if Anna wasn't here. But she can appreciate beauty in a lot more things than I do."
 
 "And she is often infectious when she does."
 
+show rai annoyed
+
 R "Yeahhh okay, maybe later."
 
 "Rai doesn't sound particularly convincing."
+
+show rai happy
 
 "But his voice fills with excitement again when he moves back to the original topic. He can be pretty infectious as well."
 
 R "I want to show you the {i}cool{/i} stuff first."
 
-#"He shows us his key ring, which emits a nice metal sound as he makes the keys jingle.
+"He shows us his key ring, which emits a nice metal sound as he makes the keys jingle."
 
-#R “Including some things only I have the ticket to.”
+R "Including some things only I have the ticket to."
 
 "We follow him as he picks a direction for our tourless tour through the villa; he ends up picking the right."
 
@@ -841,7 +1076,7 @@ N "You could tell, just by looking at her, that every detail of her appearance h
 N "It must have been the first moment that made me realize that I was attending a college lecture in a sweatshirt, the kind 
 I used to wear back in high school."
 
-N "The first moment I realized she was not a girl, but a woman. And I was still a boy, who had scarce experience interacting with either."
+N "The moment I realized she was not a girl, but a woman. And I was still a boy, who had scarce experience with either."
 
 N "It would have been easy—I felt—saying hello, had she been a he."
 
@@ -1760,7 +1995,7 @@ N "But as soon as our lips had met, he had leaned into it with such eagerness, a
 
 N "My hand had trailed down his back, and he had arched forward as if to invite me to explore further."
 
-N "And I did. One way or another, my hand must have landed on his crotch for then he whispered to me."
+N "And I did. One way or another, my hand must have landed on his crotch, because he whispered to me."
 
 RFB "Not in the middle of the road. Follow me."
 
@@ -1848,14 +2083,21 @@ N "We never mentioned it again."
 
 "I can't really blame what happened earlier on him if I've never made clear how things stand between us."
 
-"In my heart, I had deceived myself that we had both agreed that being best friends was enough for us.
-Best friend. Wasn’t that how I introduced him earlier to Anna?
-Wasn’t that how I’ve been introducing him to everyanyone ever since?
-I think back to the Lady Giudittaof the house again. Is that how she’d had wanted to be introduced as well?
-I finally look back to where I came from.
-This whole thing has been so stupid.
-We’re all been so stupid. Pinning our hopes on wishes and good luck.
-I brought everyone here to be honest. Time to be honest with him too.
+"In my heart, I deceived myself into thinking we had both agreed that being best friends was enough for us."
+
+"Best friend. Wasn't that how I introduced him earlier to Anna?"
+
+"Wasn't that how I've been introducing him to everyone ever since?"
+
+"I think back to Lady Giuditta again. Isn't her story that she got to be introduced as she wished?"
+
+"I finally look back to where I came from."
+
+"This whole thing has been so stupid."
+
+"We've all been so stupid. Pinning our hopes on wishes and good luck."
+
+"I brought everyone here to be honest. Time to be honest with him too."
 
 
 ############################################### ANNA POV ###############################################
@@ -1878,202 +2120,332 @@ $ pov = "anna"
 
 "The faces of this polyhedron demand nothing from you."
 
-  "“All is dust in the wind,” and all that."
+"“All is dust in the wind,” and all that."
 
-  "You briefly wonder if this is sacrilegious, but it\'s a far cry from idol worship."
+"You briefly wonder if this is sacrilegious, but it's a far cry from idol worship."
 
-  "People are allowed to appreciate art in a museum."
+"People are allowed to appreciate art in a museum."
 
-  "Polyhedron How are you feeling?"
+Poly "How are you feeling?"
 
-  "Sad. Crushed. Like I want to escape."
+"Sad. Crushed. Like I want to escape."
 
-  "Polyhedron Escape to where?"
+Poly "Escape to where?"
 
-  "Here is fine."
+"Here is fine."
 
-  "Polyhedron I see. That’s all right. I will be here."
+Poly "I see. That's all right. I will be here."
 
-  "…"
+"…"
 
-  "Polyhedron …"
+Poly "…"
 
-  "…"
+"…"
 
-  "So Giuditta was in love with someone else."
+"So Giuditta was in love with someone else."
 
-  "Polyhedron That is typically what these fur lockets mean."
+Poly "That is typically what these fur lockets mean."
 
-  "From before, though. And she married Ferdinand anyways."
+"From before, though. And she married Ferdinand anyways."
 
-  "That whole story about them being in love, getting married, living out their lives in this villa."
+"That whole story about them being in love, getting married, living out their lives in this villa."
 
-  "Maybe she looks so sad in these paintings because…"
+"Maybe she looks so sad in these paintings because…"
 
-  "It’s so sad."
+"It's so sad."
 
-  "The crying starts again."
+"The crying starts again."
 
-  "I hiccup."
+"I hiccup."
 
-  "Am I allowed to stay here?"
+"Am I allowed to stay here?"
 
-  "Polyhedron Stay here as long as you need."
+Poly "Stay here as long as you need."
 
-  "Polyhedron Let it out, let it out."
+Poly "Let it out, let it out."
 
-  "Polyhedron It’s okay. No one can see you here."
+Poly "It's okay. No one can see you here."
 
-  "You didn\'t fall in love with Fede the moment you met. Or even on your first date."
+############################################### FEDE POV ###############################################
 
-  "He slouched, and had a bad habit of staring at his feet."
+$ pov = "fede"
 
-  "A couple days later you were looking for a friend in the practice rooms at school and heard Fede singing, by pure chance."
+"He's still sitting where I left him, in the room with the portrait of the Lady."
 
-  "He was belting out “Haven’t Met You Yet” without a care in the world and banging out chords on an out-of-tune piano. "
+MCR "Hey."
 
-  "But it was beautiful. He sounded happy."
+MCF "Hey."
 
-  "Maybe that wasn\'t love then, either, but interest. The beginnings of love."
+"He doesn't get up. He doesn't look at me"
 
-  "Had he been... like that, even back then?"
+MCR "Listen, I'm so-"
 
-  "Is the Fede at the piano somewhere here in the villa right now, waiting for you?"
+MCF "No, please!"
 
-  "You make your way back to the anteroom which leaks light into the adjacent exhibit. A sign of life."
+MCF "Let me go first."
 
-  "Bg lit room"
+MCF "You've apologized quite enough for one night."
 
-  "Show raimondo neutral"
+"Now that I've taken away his initiative, he finally looks."
 
-  "Raimondo is alone on the divan, and looks up at you when you enter."
+MCF "You've got nothing to apologize for."
 
-  "It would’ve been romantic in this room with just the two of them. Soft shadows on soft fur."
+MCF "You know, I've done some thinking, and I've realized I keep telling everyone you're my best friend."
 
-  "But Federico is not here. Raimondo is alone."
+MCF "But I've never bothered to check if that's what you want to be."
 
-  annaspeaker "Ah… Hello again."
+MCF "I've never told you how I feel. And for that, it's me who should apologize."
 
-  raispeaker "Hey."
+MCF "I- Do you mind if I sit next to you?"
 
-  annaspeaker "I thought he’d be with you."
+MCF "Feels a little weird to talk down on you like this."
 
-  raispeaker "He left. He asked me to unlock the front door for him, and I did."
+"Raimondo looks at the spot next to him, as if considering his choice carefully. Then he shrugs."
 
-  raispeaker "Sun isn’t up yet. Guess he doesn’t need the Lady’s blessing."
+MCR "Course."
 
-  raispeaker "Makes you wonder what it was all for."
+#"I sit next to him, while trying to maintain a respectful distance between us."
 
-  annaspeaker "It means I got to meet you."
+MCF "I won't pretend I've understood how love works."
 
-  "He smiles weakly."
+"Well, that's one way to start this conversation."
 
-  raispeaker "Sure."
+MCF "There's still so much stuff I'm still trying to figure out."
 
-  annaspeaker "I have a feeling we’ll be seeing each other again."
+MCF "I feel pretty confident about a few things though."
 
-  raispeaker "Maybe."
+MCF "I like women, and I like men too. Even if I don't have the best track record to prove that second part."
 
-  raispeaker "I don’t think he went far. He wouldn’t drive off without you."
+MCF "And I love you. I really do."
 
-  raispeaker "You should go."
+"I don't look away, I don't slouch. I want to make sure he understands I have no reservations about what I'm saying."
 
-  annaspeaker "Goodbye then. And thank you."
+MCF "But there’s also something else I think I learned."
 
-  raispeaker "See ya."
+MCF "Back when we were kids, I used to think love, the romantic kind, the kind of love of stories and fables? It was just like other kinds of love, just more intense."
 
-  "Scene bg foyer"
+MCF "But now, I think the Greeks were right, you know?"
 
-  "The grand entryway."
+"I can tell by his expression he does, in fact, not know."
 
-  "Are you ready?"
+MCF "Different kinds of love are just different kinds of love. They're not on a scale."
 
-  "Scene bg window (Outside is brighter than inside.)"
+MCF "I used to wonder if the reason I don't want to ask you out is that I don't love you enough."
 
-  "It’s a beautiful garden. Same as it was when you arrived."
+MCF "But that's not it at all! It's just that I love you too much as a friend, and I feel like being anything else would spoil that."
 
-  "Federico stands a short distance from the steps, looking out over the rows of flowers."
+MCF "I was really happy to get to hang out with you again, you know?"
 
-  "Time to go to him."
+#beat
 
-  "Scene bg door"
+MCF "When we did… that kind of stuff…"
 
-  "Your hand is on the doorknob. It turns."
+"I stroke some invisible cylinder close to my mouth, before I remind myself I came here with the intention to speak clearly."
 
-  "Play sound chord2"
+MCF "When we had… sex…"
 
-  "A twinge. "
+MCF "Even though I wanted it, part of me was so terrified I would be… bad at it."
 
-  "You\'re breaking the rule."
+MCF "I guess now that I've had more experience, that feels like the kind of silliness we all go through when sex is new to us."
 
-  "If you stay inside, stay where you are, maybe lady [name] will grant your wish."
+MCF "But it wasn't just that. I believe what I really scared me was that sex could become the scale by which we would measure our friendship."
 
-  "But that\'s foolishness."
+"He's let me talk for a while now."
 
-  "Play sound door_open"
+"There's still stuff I want to say. I don't feel like I've managed to explain everything about how I feel."
 
-  "Play ambient outdoor_night"
+"Thankfully I don't need to. I find myself into Raimondo's hug."
 
-  "Play music “uncertain futures”"
+"It's a very different hug from earlier. No less tight, no less intense."
 
-  "Scene bg garden"
+"Just different."
 
-  "The night air is cool and fresh, and the garden opens before you."
+MCR "Thank you for telling me."
 
-  "You walk down the steps. Stop."
+"We stay like this for a while."
 
-  "Breathe."
+"When our hug ends, the villa is still there. It's patiently been waiting."
 
-  "Flowers and vines and outside."
+"I get up."
 
-  "Walk."
+MCF "I think I'd like to go out now."
 
-  "Show fede pensive [gaze elsewhere]"
+MCR "Are you sure? The Lady might still grant your wish."
 
-  "He must hear your footsteps on the grass as you approach. But he doesn\'t stir."
+MCF "I think that boat's sailed."
 
-  annaspeaker "Fede?"
+MCR "Has it?"
 
-  fedespeaker "Anna."
+MCF "I told you what happened."
 
-  "He says without turning towards you."
+MCR "Yeah. I've talked to her myself."
 
-  annaspeaker "I love you."
+MCR "I don't think I gave her a fair chance tonight… But we've hung out."
 
-  "It hurts to get out. Your face burns."
+MCR "She might just need some time. Like we did."
 
-  "It may not be enough, but it is true."
+MCR "Relationships are an endless cycle of opportunities to hurt each other."
 
-  "Show fede direct [looking at her, same serious expression]"
+MCR "I'm not telling you you have to forgive her, if that's not what you want."
 
-  fedespeaker "Love you too."
+MCR "I'm just telling you she might regret her first reaction. She might want to be forgiven."
 
-  "It\'s overwhelming."
+MCR "Trust me. We do all the time."
 
-  "Play sound hug"
+############################################### ANNA POV ###############################################
 
-  "You hug each other. It’s the first time in a while you’ve hugged each other like this. Like each of you
+$ pov = "anna"
+
+"You didn't fall in love with Fede the moment you met. Or even on your first date."
+
+"He slouched, and had a bad habit of staring at his feet."
+
+"A couple days later you were looking for a friend in the practice rooms at school and heard Fede singing, by pure chance."
+
+"He was belting out “Haven’t Met You Yet” without a care in the world and banging out chords on an out-of-tune piano."
+
+"But it was beautiful. He sounded happy."
+
+"Maybe that wasn't love then, either, but interest. The beginnings of love."
+
+"Had he been... like that, even back then?"
+
+"Is the Fede at the piano somewhere here in the villa right now, waiting for you?"
+
+"You make your way back to the anteroom which leaks light into the adjacent exhibit. A sign of life."
+
+#"Bg lit room"
+
+#"Show raimondo neutral"
+
+"Raimondo is alone on the divan, and looks up at you when you enter."
+
+"It would've been romantic in this room with just the two of them. Soft shadows on soft fur."
+
+"But Federico is not here. Raimondo is alone."
+
+MCA "Ah… Hello again."
+
+R "Hey."
+
+MCA "I thought he’d be with you."
+
+R "He left. He asked me to unlock the front door for him, and I did."
+
+R "Sun isn't up yet. Guess he doesn't need the Lady's blessing."
+
+R "Makes you wonder what it was all for."
+
+MCA "I got to meet you."
+
+"He smiles weakly."
+
+R "Sure."
+
+MCA "I have a feeling we'll be seeing each other again."
+
+R "Maybe."
+
+R "I don't think he went far. He wouldn't drive off without you."
+
+R "You should go."
+
+MCA "Goodbye then. And thank you."
+
+R "See ya."
+
+#"Scene bg foyer"
+
+"The grand entryway."
+
+"Are you ready?"
+
+#"Scene bg window (Outside is brighter than inside.)"
+
+"It's a beautiful garden. Same as it was when you arrived."
+
+"Federico stands a short distance from the steps, looking out over the rows of flowers."
+
+"Time to go to him."
+
+#"Scene bg door"
+
+"Your hand is on the doorknob. It turns."
+
+#"Play sound chord2"
+
+"A twinge."
+
+"You're breaking the rule."
+
+"If you stay inside, stay where you are, maybe lady Giuditta will still grant your wish."
+
+"But that's foolishness."
+
+#"Play sound door_open"
+
+#"Play ambient outdoor_night"
+
+#"Play music “uncertain futures”"
+
+#"Scene bg garden"
+
+"The night air is cool and fresh, and the garden opens before you."
+
+"You walk down the steps. Stop."
+
+"Breathe."
+
+"Flowers and vines and outside."
+
+"Walk."
+
+#"Show fede pensive [gaze elsewhere]"
+
+"He must hear your footsteps on the grass as you approach. But he doesn't stir."
+
+MCA "Fede?"
+
+F "Anna."
+
+"He says without turning towards you."
+
+MCA "I love you."
+
+"It hurts to get out. Your face burns."
+
+"It may not be enough, but it is true."
+
+#"Show fede direct [looking at her, same serious expression]"
+
+F "Love you too."
+
+"It\'s overwhelming."
+
+#"Play sound hug"
+
+"You hug each other. It's the first time in a while you've hugged each other like this. Like each of you
 was trying to drown themself in the other."
 
-  "Federico is thick and sturdy like he’s always been. You know the shape of his body. You know this shirt
+"Federico is thick and sturdy like he's always been. You know the shape of his body. You know this shirt
 because you were the one who bought it for him."
 
-  "Does that make it his shirt? Or yours?"
+"Does that make it his shirt? Or yours?"
 
-  "You’d never thought about it that way until now."
+"You'd never thought about it that way until now."
 
-  "Federico hums, and his shoulder buzzes against your face."
+"Federico hums, and his shoulder buzzes against your face."
 
-  fedespeaker "“Hey.”"
+F "Hey."
 
-  fedespeaker "“The sun’s coming up.”"
+F "The sun's coming up."
 
-  "He relaxes his grip, and you want to hold on, but he has decided the moment is over."
+"He relaxes his grip, and you want to hold on, but he has decided the moment is over."
 
-  "The sky behind Federico is still dark. He motions his head to something over your shoulder."
+"The sky behind Federico is still dark. He motions his head to something over your shoulder."
 
-  "You turn to see what he sees."
+"You turn to see what he sees."
 
-  "[Fade to black, credits]"
+#"[Fade to black, credits]"
 
 return
