@@ -118,7 +118,7 @@ layeredimage rai:
         attribute neutral default:
             "images/Raimondo/Neutral.png"
         attribute annoyed:
-            "images/Raimondo/Annoyed.png"
+            "images/Raimondo/Annoyed.webp"
         attribute sad:
             "images/Raimondo/Sad.png"
         attribute gag:
