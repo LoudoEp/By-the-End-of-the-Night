@@ -1,5 +1,8 @@
 # The script of the game goes in this file.
 
+init python:
+    renpy.music.register_channel("ambient", "ambient", loop=True, stop_on_mute=True, tight=False, buffer_queue=True)
+
 ################################################################################
 
 ### TRANSFORMS ###
@@ -37,20 +40,20 @@ layeredimage fed:
     zoom 0.45 yoffset 550
     group body:
         attribute base default:
-            "images/Federico/Base.png"
+            "images/Federico/Base.webp"
     group expressions:
         attribute neutral default:
-            "images/Federico/Neutral.png"
+            "images/Federico/Neutral.webp"
         attribute concerned:
-            "images/Federico/Concerned.png"
+            "images/Federico/Concerned.webp"
         attribute happy:
-            "images/Federico/Happy.png"
+            "images/Federico/Happy.webp"
         attribute mad:
-            "images/Federico/Mad.png"
+            "images/Federico/Mad.webp"
         attribute sad:
-            "images/Federico/Sad.png"
+            "images/Federico/Sad.webp"
         attribute turned:
-            "images/Federico/Turned.png"
+            "images/Federico/Turned.webp"
     group eyes:
         attribute open default:
             Null()
@@ -71,26 +74,26 @@ layeredimage ann:
     xzoom -1.0 zoom 0.45 yoffset 550
     group body:
         attribute base default:
-            "images/Anna/Base.png"
+            "images/Anna/Base.webp"
         attribute openpaw:
-            "images/Anna/Open.png"
+            "images/Anna/Open.webp"
         attribute side:
-            "images/Anna/Side.png"
+            "images/Anna/Side.webp"
     group expressions:
         attribute neutral default:
-            "images/Anna/Neutral.png"
+            "images/Anna/Neutral.webp"
         attribute angry:
-            "images/Anna/Angry.png"
+            "images/Anna/Angry.webp"
         attribute concerned:
-            "images/Anna/Concerned.png"
+            "images/Anna/Concerned.webp"
         attribute happy:
-            "images/Anna/Happy.png"
+            "images/Anna/Happy.webp"
         attribute mad:
-            "images/Anna/Mad.png"
+            "images/Anna/Mad.webp"
         attribute sad:
-            "images/Anna/Sad.png"
+            "images/Anna/Sad.webp"
         attribute sad2:
-            "images/Anna/Sad2.png"
+            "images/Anna/Sad2.webp"
     group eyes:
         attribute open default:
             Null()
@@ -103,30 +106,30 @@ image side ann = LayeredImageProxy("ann")
 
 ### RAIMONDO ###
 
-define R = Character(_("Raimondo"), color ="#fff", what_prefix='“', what_suffix='"')
-define MCR = Character(_("Raimondo"), color ="#fff", what_prefix='“', what_suffix='"', image="rai")
-define RFB = Character(_("Raimondo"), color ="#fff", what_prefix='“', what_suffix='"', image="pastrai", what_italic = True)
+define R = Character(_("Raimondo"), color ="#fff", what_prefix='“', what_suffix='”')
+define MCR = Character(_("Raimondo"), color ="#fff", what_prefix='“', what_suffix='”', image="rai")
+define RFB = Character(_("Raimondo"), color ="#fff", what_prefix='“', what_suffix='”', image="pastrai", what_italic = True)
 
 layeredimage rai:
     zoom 0.45 yoffset 550
     group body:
         attribute base default:
-            "images/Raimondo/Base.png"
+            "images/Raimondo/Base.webp"
         attribute meee:
-            "images/Raimondo/Meee.png"
+            "images/Raimondo/Meee.webp"
     group expressions:
         attribute neutral default:
-            "images/Raimondo/Neutral.png"
+            "images/Raimondo/Neutral.webp"
         attribute annoyed:
             "images/Raimondo/Annoyed.webp"
         attribute sad:
-            "images/Raimondo/Sad.png"
+            "images/Raimondo/Sad.webp"
         attribute gag:
-            "images/Raimondo/Gag.png"
+            "images/Raimondo/Gag.webp"
         attribute happy:
-            "images/Raimondo/Happy.png"
+            "images/Raimondo/Happy.webp"
         attribute mad:
-            "images/Raimondo/Mad.png"
+            "images/Raimondo/Mad.webp"
     group eyes:
         attribute open default:
             Null()
@@ -137,22 +140,22 @@ image side rai = LayeredImageProxy("rai")
 
 image side pastrai:
     zoom 0.45 yoffset 550
-    "images/Raimondo/Past1.png"
+    "images/Raimondo/Past1.webp"
     pause 3.0
     zoom 0.45 yoffset 550
-    "images/Raimondo/Past2.png"
+    "images/Raimondo/Past2.webp"
     pause 0.5
     zoom 0.45 yoffset 550
-    "images/Raimondo/Past1.png"
+    "images/Raimondo/Past1.webp"
     pause 5.0
     zoom 0.45 yoffset 550
-    "images/Raimondo/Past2.png"
+    "images/Raimondo/Past2.webp"
     pause 0.5
     zoom 0.45 yoffset 550
-    "images/Raimondo/Past1.png"
+    "images/Raimondo/Past1.webp"
     pause 2.0
     zoom 0.45 yoffset 550
-    "images/Raimondo/Past2.png"
+    "images/Raimondo/Past2.webp"
     pause 0.5
     repeat
     
@@ -165,7 +168,7 @@ define P = Character(_("Polyhedron"), color ="#fff", what_prefix='“', what_suf
 
 image poly:
     zoom 0.3
-    "images/Poly/STATUE_sprite.png"
+    "images/Poly/STATUE_sprite.webp"
 
 
 ################################################################################
@@ -175,14 +178,14 @@ image poly:
 image black = "#000"
 image car = "images/pexels-Alessandro-Aviles.avif"
 image approaching = "images/approaching-Kerche.jpg"
-image parking = "images/unsplash-parking-sebastian-huxley.jpg"
+image parking = "images/unsplash-parking-sebastian-huxley.webp"
 image bglight:
     zoom 2.0
-    "images/bglight.png"
+    "images/bglight.webp"
 image chlight:
     zoom 2.0
-    "images/chlight.png"
-image shed = "images/unsplash-shed-ricky-kharawala.jpg"
+    "images/chlight.webp"
+image shed = "images/unsplash-shed-ricky-kharawala.webp"
 image nightfield = "images/unsplash-nightfield-artur-oliinyk.webp"
 image vase = "images/unsplash-vase-kamilla-isalieva.webp"
 
@@ -193,10 +196,10 @@ image vase = "images/unsplash-vase-kamilla-isalieva.webp"
 label start:
 
 ############################################### ANNA POV ###############################################
-
+scene black with dissolve
 stop music fadeout 3.0
-pause 5.0
-#play music chat volume 0.3
+pause 1.0
+play ambient caronroad fadein 5.0
 scene car at goodsize with Dissolve(5.0)
 
 $ _window_show()
@@ -218,7 +221,7 @@ pause 1.0
 
 "What kind of person is he?"
 
-pause 1.0
+#pause 1.0
 
 "Raimondo, from high school."
 
@@ -269,6 +272,7 @@ scene black with dissolve
 "He parks at the far corner in the shadows of a bushy tree and a single hedge."
 
 #"Stop ambient (car engine)"
+stop ambient fadeout 3.0
 
 "You're not trespassing (yet)."
 
@@ -288,6 +292,8 @@ MCA neutral "All right."
 
 scene parking at truecenter
 with dissolve
+
+play ambient crickets fadein 3.0
 
 pause 5.0
 
@@ -427,6 +433,8 @@ moment you are alone."
 
 #"You step into the darkness."
 
+stop ambient fadeout 5.0
+
 scene black with Dissolve(5.0)
 
 camera
@@ -438,6 +446,8 @@ $ pov = "fede"
 #"Scene black"
 
 "I can tell from the sound of Rai's steps that he slows down almost immediately."
+
+play sound lightswitch
 
 "And then with a click, I'm blinded by the light."
 
@@ -585,13 +595,14 @@ MCF "It {i}is{/i} dark now."
 
 R "I'll find you when I'm done."
 
+play ambient crickets fadein 3.0
 scene black with dissolve
-pause 0.1
+pause 2.0#0.1
 show nightfield at goodsize
 show gagmoment at goodsize:
     anchor(1.0,0.0) pos(-500,0)
 with dissolve
-
+play music uncertainfutures
 "Such a pleasant night."
 
 "The few lights around the outside of the villa are the only sources of light for a few miles at least."
@@ -649,6 +660,8 @@ MCF "Plus, I don't even know if this counts as illegal. Rai has the keys and he'
 
 "Just this once."
 
+stop music fadeout 5.0
+
 "As if it was a sign from the divine providence, we finally see the red taillights of a vehicle driving away down the road we came from."
 
 show nightfield:
@@ -677,6 +690,7 @@ scene black with dissolve
 pause 0.1
 show entrydoor at top with dissolve:
     zoom 0.65
+play sound chord1
 pause 5.0
 show entrydoor:
     linear (5.0) ypos(-1.0)
@@ -685,22 +699,31 @@ show entrydoor:
 
 "If both were open at the same time, all three of us could walk inside arm in arm and still have plenty of room for others to join us."
 
-"When Raimondo and I talked about sneaking in, I couldn't imagine we would enter through *this* kind of door."
+play sound chord2
+
+"When Raimondo and I talked about sneaking in, I couldn't imagine we would enter through {i}this{/i} kind of door."
+
+play sound keys
 
 "But Raimondo is fidgeting with some oversized keys, unperturbed."
-
+play sound unlock
 "Click."
 
 "Such a satisfying heavy sound. A modern lock would be far less dramatic."
 
+play sound chord3
+
 MCA side "That's inconvenient that you have to do this every time with the old lock."
 
-MCR "Yep. I need to make sure this door stays lock at all times once I'm on shift. Can't have anyone sneaking inside."
+MCR "Yep. I need to make sure this door stays locked at all times once I'm on shift. Can't have anyone sneaking inside."
 
 MCR happy "To be honest, this trusty rusty door does half of the job for me."
 
 scene black with dissolve
 
+play sound chord4
+play audio doorcreak
+stop ambient fadeout 3.0
 "He pushes the doors with both hands."
 
 show entryway at goodsize:
@@ -725,6 +748,8 @@ R "Madame and monsieur, welcome to Maison von Radetz."
 A "Where's the light?"
 
 "For a moment I worry Anna might be frightened. Instead, I see her tentatively stepping deeper into the room."
+
+play sound flashlight
 
 # light
 show entryway at goodsize:
@@ -941,7 +966,7 @@ show rai:
 
 "He approaches the placard and squints his eyes to read it, like I was attempting to do. But unlike me, he has a flashlight."
 
-R "“Threads of Dreams: The Sense of Whimsy of the Modern Man.”"
+R "‘Threads of Dreams: The Sense of Whimsy of the Modern Man.’"
 
 show rai gag meee
 
@@ -1041,7 +1066,7 @@ show dove at truecenter with dissolve:
 
 "Do I even believe in ghosts? I'm of two minds."
 
-"On one hand, I *know* ghosts don't exist. They can't."
+"On one hand, I {i}know{/i} ghosts don't exist. They can't."
 
 "They're stories we've inherited by ancestors who didn't fully understand how the world works."
 
@@ -1061,6 +1086,8 @@ show ladyportrait at top:
 show chlight at truecenter:
     zoom 0.5
 with Dissolve(5.0)
+
+play music musicbox
 
 "A large family portrait hangs in a sitting room. There are other paintings around, but this one—this one
 is {i}displayed{/i}."
@@ -1139,6 +1166,8 @@ R "In reality, Ferdinand marrying a commoner caused a bit of a scandal back then
 R "All accounts indicate the von Radetz family enjoyed a long-lasting popularity after that union. Even when the Habsburgs didn't."
 
 R "The wall hanging was unfortunately lost in a fire, but according to the records…"
+
+stop music fadeout 10.0
 
 ############################################### FEDE POV ###############################################
 
@@ -1449,9 +1478,11 @@ show rai neutral
 
 R "Didn't say you were."
 
-"Sting. "
+MCA concerned "…"
 
-extend "Twice."
+#"Sting. "
+
+#extend "Twice."
 
 MCA "We can head back."
 
@@ -1771,7 +1802,7 @@ show ann mad
 
 "This shuts her up."
 
-#"Play sound knocked_over"
+play sound impact
 
 hide ann with dissolve
 
@@ -2005,7 +2036,7 @@ MCR "She can't see how lucky she is."
 "She always has some to pop into her mouth, and that was the flavor she liked for her toothpaste."
 
 "Raimondo is like a whirlpool by comparison. He tastes of the noodles he ate, of the vape he smoked, of the beer he drank,
-of *his* breath…"
+of {i}his{/i} breath…"
 
 "He tastes like he had the last time we kissed like this."
 
@@ -2028,9 +2059,12 @@ pause 0.1
 
 $ pov = "anna"
 
-show upstairs at truecenter with Dissolve(5.0):
-    matrixcolor BrightnessMatrix(-0.2)
-    zoom 0.6
+show wardrobe at truecenter with Dissolve(5.0):
+    zoom 0.4
+
+#show upstairs at truecenter with Dissolve(5.0):
+#    matrixcolor BrightnessMatrix(-0.2)
+#    zoom 0.6
 
 "You hold Lady Giuditta's necklace in your palm. Its pendant is heavy, made out of some precious
 metal of the olden days."
@@ -2056,13 +2090,11 @@ pause 0.5
 
 "But this was his fault. Let him."
 
-#"[Can add more interior thoughts and frustrations here]"
-
 #"Stop sound"
 
-#"Play sound unclasp"
+play sound locket
 
-#"The pendant splits open."
+"The pendant splits open."
 
 "You're a mix of horrified and glad."
 
@@ -2461,6 +2493,8 @@ pause 0.1
 
 $ pov = "anna"
 
+play music polyhedron fadein 5.0
+
 show modernart at truecenter with Dissolve(5.0):
     zoom 0.6
     matrixcolor BrightnessMatrix(-0.2)
@@ -2529,6 +2563,8 @@ P "Let it out, let it out."
 
 P "It's okay. No one can see you here."
 
+stop music fadeout 5.0
+
 scene black with Dissolve(5.0)
 pause 0.1
 
@@ -2548,7 +2584,7 @@ MCF concerned "Hey."
 
 "He doesn't get up. He doesn't look at me"
 
-MCR "Listen, I'm so-"
+MCR "Listen, I'm so—"
 
 MCF "No, please!"
 
@@ -2566,7 +2602,7 @@ MCF concerned "But I've never bothered to check if that's what you want to be."
 
 MCF "I've never told you how I feel. And for that, it's me who should apologize."
 
-MCF "I- Do you mind if I sit next to you?"
+MCF "I—Do you mind if I sit next to you?"
 
 MCF neutral "Feels a little weird to talk down on you like this."
 
@@ -2675,6 +2711,8 @@ show pianocg at goodsize with Dissolve(5.0)
 
 "He slouched, and had a bad habit of staring at his feet."
 
+play music federicopiano
+
 "A couple days later you were looking for a friend in the practice rooms at school and heard Fede singing, by pure chance."
 
 "He was belting out “Haven’t Met You Yet” without a care in the world and banging out chords on an out-of-tune piano."
@@ -2683,9 +2721,11 @@ show pianocg at goodsize with Dissolve(5.0)
 
 "Maybe that wasn't love then, either, but interest. The beginnings of love."
 
-"Had he been... like that, even back then?"
+"Had he been… like that, even back then?"
 
 "Is the Fede at the piano somewhere here in the villa right now, waiting for you?"
+
+stop music fadeout 5.0
 
 scene black with Dissolve(5.0)
 
@@ -2746,6 +2786,8 @@ scene black with dissolve
 pause 0.1
 show entryway at goodsize with dissolve
 
+play sound chord1
+
 "The grand entryway."
 
 "Are you ready?"
@@ -2762,6 +2804,8 @@ show fed:
     matrixcolor BrightnessMatrix(-1.0)
 with dissolve
 
+play sound chord2
+
 "It's a beautiful garden. Same as it was when you arrived."
 
 "Federico stands a short distance from the steps, looking out over the rows of flowers."
@@ -2770,11 +2814,9 @@ with dissolve
 
 scene black with dissolve
 
-#"Scene bg door"
-
 "Your hand is on the doorknob. It turns."
 
-#"Play sound chord2"
+play sound chord3
 
 "A twinge."
 
@@ -2782,7 +2824,14 @@ scene black with dissolve
 
 "If you stay inside, stay where you are, maybe lady Giuditta will still grant your wish."
 
+play sound chord4
+
 "But that's foolishness."
+
+play audio doorcreak
+play ambient crickets fadein 3.0
+
+pause 2.0
 
 #"Play sound door_open"
 
@@ -2796,6 +2845,10 @@ show night at goodsize
 show dawn at goodsize:
     alpha(0.0)
 with dissolve
+
+#play music uncertainfutures
+
+play music "<from 79.5 loop 0.0>audio/music/uncertainfutures.ogg"
 
 "The night air is cool and fresh, and the garden opens before you."
 
@@ -2838,7 +2891,7 @@ F "Love you too."
 
 hide fed with dissolve
 
-#"Play sound hug"
+play sound hug
 
 "You hug each other. It's the first time in a while you've hugged each other like this. Like each of you
 was trying to drown themself in the other."
@@ -2865,7 +2918,10 @@ MCF "The sun's coming up."
 show dawn:
     linear 25.0 alpha(1.0)
 
-pause (25.0)
+pause (20.0)
+
+stop music fadeout 5.0
+stop ambient fadeout 5.0
 
 #"[Fade to black, credits]"
 

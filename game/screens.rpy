@@ -98,10 +98,15 @@ style frame:
 
 define texty = "gui/textbox[pov].webp"
 
+define textym = "gui/textboxmobile[pov].webp"
+
 screen say(who, what):
 
     fixed:
-        add texty xalign 0.5 yalign 1.0
+        if not renpy.variant("small"):
+            add texty xalign 0.5 yalign 1.0
+        else:
+            add textym xalign 0.5 yalign 1.0
 
     window:
         id "window"
@@ -118,8 +123,9 @@ screen say(who, what):
 
     ## If there's a side image, display it above the text. Do not display on the
     ## phone variant - there's no room.
-    if not renpy.variant("small"):
-        add SideImage() xalign -0.9 yalign 0.2
+    #if not renpy.variant("small"):
+    #    add SideImage() xalign -0.9 yalign 0.2
+    add SideImage() xalign -0.9 yalign 0.2
 
 
 ## Make the namebox available for styling through the Character object.
@@ -300,7 +306,7 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            pass#textbutton _("Start") action Start()
 
         else:
 
@@ -358,53 +364,32 @@ screen main_menu():
 
     add gui.main_menu_background
 
-    ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
+    vbox:
+        if not renpy.variant("small"):
+            xanchor 0.5
+            yanchor 0.5
+            xpos 0.7
+            ypos 0.75
+            spacing 0
+            textbutton _("Start") action Start() text_size 50
+            textbutton _("Load") action ShowMenu("load") text_size 50
+            textbutton _("Preferences") action ShowMenu("preferences") text_size 50
+            textbutton _("About") action ShowMenu("about") text_size 50
+            if renpy.variant("pc"):
+                textbutton _("Quit") action Quit(confirm=not main_menu) text_size 50
+        else:
+            xanchor 0.5
+            yanchor 0.5
+            xpos 0.72
+            ypos 0.75
+            spacing 10
+            textbutton _("Start") action Start() text_size 60
+            textbutton _("Load") action ShowMenu("load") text_size 60
+            textbutton _("Preferences") action ShowMenu("preferences") text_size 60
+            textbutton _("About") action ShowMenu("about") text_size 60
+            if renpy.variant("pc"):
+                textbutton _("Quit") action Quit(confirm=not main_menu) text_size 60
 
-    ## The use statement includes another screen inside this one. The actual
-    ## contents of the main menu are in the navigation screen.
-    use navigation
-
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
-
-
-style main_menu_frame is empty
-style main_menu_vbox is vbox
-style main_menu_text is gui_text
-style main_menu_title is main_menu_text
-style main_menu_version is main_menu_text
-
-style main_menu_frame:
-    xsize 420
-    yfill True
-
-    background "gui/overlay/main_menu.png"
-
-style main_menu_vbox:
-    xalign 1.0
-    xoffset -30
-    xmaximum 1200
-    yalign 1.0
-    yoffset -30
-
-style main_menu_text:
-    properties gui.text_properties("main_menu", accent=True)
-
-style main_menu_title:
-    properties gui.text_properties("title")
-
-style main_menu_version:
-    properties gui.text_properties("version")
 
 
 ## Game Menu screen ############################################################
@@ -791,15 +776,22 @@ screen preferences():
                             if config.sample_sound:
                                 textbutton _("Test") action Play("sound", config.sample_sound)
 
+                    label _("Ambient Volume")
 
-                    if config.has_voice:
-                        label _("Voice Volume")
+                    hbox:
+                        bar value Preference("ambient volume")
 
-                        hbox:
-                            bar value Preference("voice volume")
+                        if config.sample_sound:
+                            textbutton _("Test") action Play("sound", config.sample_sound)
 
-                            if config.sample_voice:
-                                textbutton _("Test") action Play("voice", config.sample_voice)
+                    #if config.has_voice:
+                    #    label _("Voice Volume")
+
+                    #    hbox:
+                    #        bar value Preference("voice volume")
+
+                    #        if config.sample_voice:
+                    #            textbutton _("Test") action Play("voice", config.sample_voice)
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing
@@ -1529,12 +1521,13 @@ screen quick_menu():
             textbutton _("Back") action Rollback()
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
+            textbutton _("Hide") action HideInterface() 
             textbutton _("Menu") action ShowMenu()
 
 
 style window:
     variant "small"
-    background "gui/phone/textbox.png"
+    #background "gui/phone/textbox.png"
 
 style radio_button:
     variant "small"

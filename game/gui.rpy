@@ -88,7 +88,7 @@ define gui.title_text_size = 75
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
-define gui.main_menu_background = "gui/main_menu.png"
+define gui.main_menu_background = "gui/main_menu.webp"
 define gui.game_menu_background = "gui/game_menu.png"
 
 
@@ -350,7 +350,7 @@ define gui.history_spacing = 0
 ## The position, width, and alignment of the label giving the name of the
 ## speaking character.
 define gui.history_name_xpos = 233
-define gui.history_name_ypos = 0
+define gui.history_name_ypos = 70
 define gui.history_name_width = 233
 define gui.history_name_xalign = 1.0
 
@@ -433,8 +433,8 @@ init python:
     def small():
 
         ## Font sizes.
-        gui.text_size = 45
-        gui.name_text_size = 54
+        gui.text_size = 50 #45
+        gui.name_text_size = 65#54
         gui.notify_text_size = 38
         gui.interface_text_size = 45
         gui.button_text_size = 45
@@ -442,9 +442,10 @@ init python:
 
         ## Adjust the location of the textbox.
         gui.textbox_height = 360
-        gui.name_xpos = 120
-        gui.dialogue_xpos = 135
-        gui.dialogue_width = 1650
+        gui.name_xpos = 335#120
+        gui.name_ypos = 70
+        gui.dialogue_xpos = 382#135
+        gui.dialogue_width = 1350#1450#1650
 
         ## Change the size and spacing of various things.
         gui.slider_size = 54

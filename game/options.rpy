@@ -18,18 +18,64 @@ define config.name = _("By the End of the Night")
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## The version of the game.
 
-define config.version = "1.0"
+define config.version = "1.1"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
-define gui.about = _p("""
+define gui.about = _p("""Sprites and CGs by {a=https://bsky.app/profile/shirtofsouls.bsky.social}sikyu{/a}.
+
+Music by {a=https://joelurker.itch.io}Joe Lurker{/a}.
+
+Code for floating object provided by Rekion.
+
+Sound Effects
+
+Car journey part 2, out of town, 30mph, 50mph, 70mph, petrol engine, manual transmission by philipquintonsound -- https://freesound.org/s/820354/ -- License: Attribution 4.0. Cut and looped.
+
+Crickets chirping in the break of dawn by Demigodgod1604 -- https://freesound.org/s/735001/ -- License: Attribution 4.0. Cut and looped.
+
+Flashlight Switch Click by Ralph0o7 -- https://freesound.org/s/690300/ -- License: Creative Commons 0.
+
+heavy old keys working on door lock.wav by bulbastre -- https://freesound.org/s/126914/ -- License: Attribution 4.0. Cut.
+
+Hit Punch repeated cloth pillow bedding.wav by MattRuthSound -- https://freesound.org/s/561657/ -- License: Attribution 4.0. Cut.
+
+Keys Jingle by BanditXF -- https://freesound.org/s/676839/ -- License: Creative Commons 0.
+
+Kitchen cupboard door creak open by ApeinCave -- https://freesound.org/s/855584/ -- License: Creative Commons 0.
+
+Light pull string.wav by bdunis4 -- https://freesound.org/s/271467/ -- License: Creative Commons 0.
+
+metal hits concrete by alex36917 -- https://freesound.org/s/521270/ -- License: Attribution 4.0. Cut, pitch lowered.
+
+Backgrounds
+
+Assorted hand tool lot on brown wooden shelf by Ricky Kharawala. https://unsplash.com/photos/assorted-hand-tool-lot-on-brown-wooden-shelf-4dVDBMAho8c.
+
+Brown grass field during night time by Artur Oliinyk. https://unsplash.com/photos/brown-grass-field-during-night-time-s4qkWP7cA4Q.
+
+A dark urn silhouetted against a bright light by Kamilla Isalieva. https://unsplash.com/photos/a-dark-urn-silhouetted-against-a-bright-light-IcWVG2MfpUQ.
+
+Hands on Steering Wheel by Alessandro Avilés. https://www.pexels.com/photo/hands-on-steering-wheel-12470869/.
+
+Milky way, Sky, Stars by johnNaturePhotos. https://pixabay.com/photos/milky-way-sky-stars-cosmos-night-4526277/.
+
+Sunset, Dawn, Nature by andpre. https://pixabay.com/photos/sunset-dawn-nature-dusk-heaven-3275244/.
+
+Vehicle parked in forest by Sebastian Huxley. https://unsplash.com/photos/vehicle-parked-in-forest-vtptXxyiZaU
+
+Other background photography taken by Kerche and Nathaniel Noble while on vacation with Loudo.
+
+UI
+
+Background, Frame, Border by Sambeetarts. https://pixabay.com/illustrations/background-frame-border-decorative-1742166/.
 """)
 
 
@@ -62,7 +108,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "audio/music/musicbox.ogg"
 
 
 ## Transitions #################################################################
@@ -89,7 +135,7 @@ define config.after_load_transition = None
 
 ## Used when entering the main menu after the game has ended.
 
-define config.end_game_transition = None
+define config.end_game_transition = Fade(3.0, 1.0, 1.0)
 
 
 ## A variable to set the transition used when the game starts does not exist.
