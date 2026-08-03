@@ -188,6 +188,7 @@ image chlight:
 image shed = "images/unsplash-shed-ricky-kharawala.webp"
 image nightfield = "images/unsplash-nightfield-artur-oliinyk.webp"
 image vase = "images/unsplash-vase-kamilla-isalieva.webp"
+image title = "gui/main_menu.webp"
 
 ################################################################################
 
@@ -196,10 +197,12 @@ image vase = "images/unsplash-vase-kamilla-isalieva.webp"
 label start:
 
 ############################################### ANNA POV ###############################################
-scene black with dissolve
+#scene title
+scene black 
+with Dissolve(2.0)
 stop music fadeout 3.0
-pause 1.0
 play ambient caronroad fadein 5.0
+pause 1.0
 scene car at goodsize with Dissolve(5.0)
 
 $ _window_show()
@@ -213,7 +216,7 @@ faces."
 
 "It's marginally better."
 
-"The heat makes you sleepy, and the rolling hills of the countryside are hypnotising."
+"The heat makes you sleepy, and the rolling hills of the countryside are hypnotizing."
 
 pause 1.0
 
@@ -447,11 +450,17 @@ $ pov = "fede"
 
 "I can tell from the sound of Rai's steps that he slows down almost immediately."
 
+"I'm a little worried that Anna might trip on something in the dark behind me, but—"
+
 play sound lightswitch
 
-"And then with a click, I'm blinded by the light."
-
 show shed at goodsize
+
+"The light comes on soon enough."
+
+#"And then with a click, I'm blinded by the light."
+
+#show shed at goodsize
 
 "A bare incandescent bulb dangles from the low ceiling. It was clearly intended to be filtered by some
 sort of lampshade."
@@ -512,6 +521,7 @@ R "And besides."
 show rai:
     linear 1.0 yalign 0.5
 $ renpy.pause (1.0,hard=True)
+play sound beer_clink
 show rai:
     linear 1.5 yalign 1.0
 
@@ -526,7 +536,6 @@ show ann concerned
 
 "He hands us each a bottle of beer."
 
-#clinking sound
 pause 1.0
 
 MCF neutral "Mmm, warm beer."
@@ -642,7 +651,7 @@ MCA sad "I don't know… This feels so stupid."
 
 "I rub her shoulder in a reassuring way, fighting the urge to defend my idea."
 
-MCA "I didn't realize it would be this far out. And what we're doing is still illegal."
+MCA "I didn't realise it would be this far out. And what we're doing is still illegal."
 
 MCF "Well, the two things go well together, don't they? No one will see us."
 
@@ -1297,7 +1306,21 @@ show wardrobe at truecenter with Dissolve(5.0):
 
 "“Women Through History” threatens to bore the both of you into napping standing up."
 
-"You're glad the exhibit exists, of course, but so much of it is text on placards."
+"There's only one flashlight between you and Federico, and you read faster than him."
+
+"He doesn't give any indication that he's finished reading, or even comment when you slow down for him. He floats behind you like a ghost or child."
+
+"It's not surprising that he is uninterested."
+
+"You're glad the exhibit exists, of course, but so much of it is text on placards, and the names and dates are scarcely in your mind before they're gone."
+
+"You stop to read at least one section of every display anyways."
+
+"It {i}is{/i} the women's exhibit, and one that Raimondo was so nonchalant about earlier, so you feel like you should."
+
+"For all the talk of Northern Italian peasants, however, there is no mention of Lady Giuditta."
+
+"Disappointing."
 
 scene black with dissolve
 pause 0.1
@@ -1307,21 +1330,29 @@ show chlight at truecenter:
     zoom 0.5
 with dissolve
 
-"You starts recognizing names when it reaches the modern day, but otherwise nothing sticks with you."
+"You start recognizing names when it reaches the modern day."
 
-"There's only one flashlight between you and Federico, and you read faster than him."
+MCA neutral "That arts and crafts chain was the one in the news for fraud earlier this year, right Federico?"
 
-"You slow the pace down, but you're not sure if he's actually reading."
+pause 1.5
 
-"You turn to check if Federico is done, but he's off in the other room looking at something in the dark.
-Or pretending to."
+"Federico is gone."
+
+"Well, he wasn't having a great time."
+
+#"You turn to check if Federico is done, but he's off in the other room looking at something in the dark.
+#Or pretending to."
 
 #"Show raimondo neutral"
 
-"Raimondo hasn't been too interested in the exhibits. He's had a long time to familiarize himself with
-them, especially this one."
+#"Raimondo hasn't been too interested in the exhibits. He's had a long time to familiarize himself with
+#them, especially this one."
 
-"There's a quiet between you."
+"Raimondo stares half-interestedly at a nearby portrait. He hasn't been too interested in this exhibit either, but that's not surprising given that he's had all the time to see everything here. Especially since this one has been around for so long."
+
+#"There's a quiet between you."
+
+"It's just the two of you now."
 
 MCA side happy "Hey, Raimondo."
 
@@ -1341,7 +1372,25 @@ show rai happy
 
 R "I'll take that as a compliment."
 
-MCA happy "How did you two meet?"
+pause 1.5
+
+show rai neutral
+
+MCA "Can I ask you something?"
+
+R "Shoot."
+
+MCA neutral "You and Fede were going to go somewhere later in the week?"
+
+R "Did you want to come with? Gotta warn you that the drinking ambiance isn't that much better than my room out here."
+
+MCA "No thank you. I just wanted to make sure you didn't feel put out by my being here tonight."
+
+R "Why would I be? The friend of my friend is my friend."
+
+"Right."
+
+MCA happy "Speaking of, how did you two meet?"
 
 show rai neutral
 
@@ -1368,13 +1417,13 @@ with dissolve
 
 F "I didn't know you used to play volleyball."
 
-#"Show anna serious"
+"Floating in like a ghost or a child."
 
 MCA neutral "It was a long time ago."
 
 F "Why'd you stop?"
 
-MCA "Why does anyone stop, Federico?"
+MCA "I don't know. Why does anyone stop, Federico?"
 
 #"Hide f"
 
@@ -1382,15 +1431,17 @@ MCA "Why does anyone stop, Federico?"
 
 scene black with dissolve
 
-"You step into the next exhibit."
+#"You step into the next exhibit."
+
+"It's about time for the next exhibit."
+
+#play sound small_door_open
 
 show weddingdress at truecenter:
     zoom 0.5
 show chlight at truecenter:
     zoom 0.5
 with dissolve
-
-#"Scene bg dress"
 
 "A woman on the other side of the room, waiting for you."
 
@@ -1433,7 +1484,9 @@ R "But they're pretty, aren't they?"
 
 MCA side "Can you imagine wearing something like that? Little bug pieces all over your skirt?"
 
-"{i}But they're pretty, aren't they?{/i}"
+"Still your eyes fix on the swirling pattern. Flowers, leaves, butterflies."
+
+#"{i}But they're pretty, aren't they?{/i}"
 
 show rai gag
 
@@ -2846,8 +2899,6 @@ show dawn at goodsize:
     alpha(0.0)
 with dissolve
 
-#play music uncertainfutures
-
 play music "<from 79.5 loop 0.0>audio/music/uncertainfutures.ogg"
 
 "The night air is cool and fresh, and the garden opens before you."
@@ -2867,7 +2918,7 @@ show fed turned at center with dissolve:
 
 "He must hear your footsteps on the grass as you approach. But he doesn't stir."
 
-MCA sad2 "Fede?"
+MCA side sad2 "Fede?"
 
 F "Anna."
 
