@@ -232,7 +232,7 @@ pause 1.0
 
 "You haven't met any of his friends from his hometown before. He doesn't talk about them much."
 
-"They exist in some vaguely defined “before” or “elsewhere” along with his parents and his Xbox."
+"They exist in some vaguely defined ‘before’ or ‘elsewhere’ along with his parents and his Xbox."
 
 "It's easy to forget, when you're surrounded by school, school, school, that there is an entire world
 outside of research paper deadlines and the campus mall."
@@ -935,7 +935,7 @@ show rai meee
 
 "He points towards a smaller entrance."
 
-R "It's the lady's private quarters. They have an exhibition about “Women Through History”."
+R "It's the lady's private quarters. They have an exhibition about ‘Women Through History’."
 
 R "It was supposed to be temporary, but they've kept it for five years straight, so I think it's permanent by now."
 
@@ -946,13 +946,13 @@ A "Oh? How… topical."
 
 "Rai makes a “so and so” gesture with his hand."
 
-R "It starts out nice enough, but the last few rooms about “modern women” stick like a sore thumb."
+R "It starts out nice enough, but the last few rooms about ‘modern women’ stick like a sore thumb."
 
 MCF "How bad could it—"
 
 show rai mad
 
-R "The last room is about “Women CEOs”."
+R "The last room is about ‘Women CEOs’."
 
 MCF concerned "Ah…"
 
@@ -975,7 +975,7 @@ show rai:
 
 "He approaches the placard and squints his eyes to read it, like I was attempting to do. But unlike me, he has a flashlight."
 
-R "‘Threads of Dreams: The Sense of Whimsy of the Modern Man.’"
+R "{i}Threads of Dreams: The Sense of Whimsy of the Modern Man.{/i}"
 
 show rai gag meee
 
@@ -1235,7 +1235,7 @@ N "It would have been easy—I felt—saying hello, had she been a he."
 
 N "But she was a woman, and any start felt like a false start."
 
-N "So I just sat there, pretending not to notice her, letting the lecture begin without even saying “hi”."
+N "So I just sat there, pretending not to notice her, letting the lecture begin without even saying ‘hi’."
 
 N "It was only when I noticed a music sheet among her notes, that I asked her, without even thinking."
 
@@ -1304,7 +1304,7 @@ show wardrobe at truecenter with Dissolve(5.0):
 
 "Raimondo is right: the lack of sleep is catching up with you."
 
-"“Women Through History” threatens to bore the both of you into napping standing up."
+"{i}Women Through History{/i} threatens to bore the both of you into napping standing up."
 
 "There's only one flashlight between you and Federico, and you read faster than him."
 
@@ -1332,9 +1332,9 @@ with dissolve
 
 "You start recognizing names when it reaches the modern day."
 
-MCA neutral "That arts and crafts chain was the one in the news for fraud earlier this year, right Federico?"
+MCA side neutral "That arts and crafts chain was the one in the news for fraud earlier this year, right Federico?"
 
-pause 1.5
+"…"
 
 "Federico is gone."
 
@@ -1348,7 +1348,9 @@ pause 1.5
 #"Raimondo hasn't been too interested in the exhibits. He's had a long time to familiarize himself with
 #them, especially this one."
 
-"Raimondo stares half-interestedly at a nearby portrait. He hasn't been too interested in this exhibit either, but that's not surprising given that he's had all the time to see everything here. Especially since this one has been around for so long."
+"Raimondo stares half-interestedly at a nearby portrait. He hasn't been too interested in this exhibit either, but that's not surprising given that he's had all the time to see everything here."
+
+"Especially since this one has been around for so long."
 
 #"There's a quiet between you."
 
@@ -1382,7 +1384,7 @@ R "Shoot."
 
 MCA neutral "You and Fede were going to go somewhere later in the week?"
 
-R "Did you want to come with? Gotta warn you that the drinking ambiance isn't that much better than my room out here."
+R "Did you want to come with? Gotta warn you that the drinking ambiance in town isn't that much nicer than my room out here."
 
 MCA "No thank you. I just wanted to make sure you didn't feel put out by my being here tonight."
 
@@ -1521,21 +1523,17 @@ R "That's history for you."
 
 MCA neutral "Where did Federico go?"
 
-show rai mad
+#show rai mad
 
-R "He's chilling out by the entrance to “Women Through History”."
+R "He's chilling out by the entrance to {i}Women Through History{/i}."
 
 MCA concerned "I'm not mad."
 
-show rai neutral
+#show rai neutral
 
 R "Didn't say you were."
 
 MCA concerned "…"
-
-#"Sting. "
-
-#extend "Twice."
 
 MCA "We can head back."
 
@@ -1823,13 +1821,13 @@ show ann angry base
 
 A "I'm not dating Raimondo!"
 
-A "I'm not bringing him home to my parents and telling them, “Hey, this might be your future son-in-law.”"
+A "I'm not bringing him home to my parents and telling them, ‘Hey, this might be your future son-in-law.’"
 
 MCF "You haven't brought me—"
 
 show ann mad
 
-A "“Who, by the way, has probably had a dick in his mouth at some point.”"
+A "‘Who, by the way, has probably had a dick in his mouth at some point.’"
 
 show ann angry
 
@@ -2293,7 +2291,7 @@ N "Not that there's anywhere to be in this town anyway."
 N "Looking back now, after having gone through so many exciting dates with Anna, my time
 spent with Raimondo was mostly uneventful."
 
-N "He'd just say something like “Wanna hang out after dinner?”. “Wanna come by my house?” 
+N "He'd just say something like ‘Wanna hang out after dinner?’. ‘Wanna come by my house?’ 
 There was never a question about what we'd do specifically, no real plan."
 
 N "There was an unspoken assumption that any time we'd get to spend together would be a good time."
@@ -2472,7 +2470,7 @@ N "I remember being so anxious about talking to Raimondo the next day, I was tem
 
 N "But I didn't. That would have made it more awkward, more conspicuous, once I would inevitably bump into him alone."
 
-N "So I stopped by his desk and he just said “hi” like nothing was weird between us."
+N "So I stopped by his desk and he just said ‘hi’ like nothing was weird between us."
 
 N "I was sure he would bring it up later, after class."
 
@@ -2566,7 +2564,7 @@ show modernart at truecenter with Dissolve(5.0):
 
 "The paintings and sculptures in this room feel patient and, perhaps, even kind."
 
-show poly at orb_anim with dissolve
+show poly with dissolve
 
 "The faces of this polyhedron demand nothing from you."
 
@@ -2616,18 +2614,26 @@ P "Let it out, let it out."
 
 P "It's okay. No one can see you here."
 
-stop music fadeout 5.0
+"In all my ugliness, kept company by toppled cones and shattered visions of lovers."
 
-scene black with Dissolve(5.0)
-pause 0.1
+"Through snot and selfish tears."
+
+"Maybe this is what freedom has always looked like."
+
+stop music fadeout 4.0
+
+scene black with Dissolve(3.0)
+pause 1.0
+#play music
+pause 1.0
 
 $ pov = "fede"
 
 ############################################### FEDE POV ###############################################
 
-show anteroom at truecenter with dissolve:
+show anteroom at truecenter:
     zoom 0.5
-with Dissolve(5.0)
+with Dissolve(3.0)
 
 "He's still sitting where I left him, in the room with the portrait of the Lady."
 
@@ -2737,11 +2743,9 @@ MCR "Has it?"
 
 MCF sad "I told you what happened."
 
-MCR "Yeah. But I've talked to her myself."
+#MCR "Yeah. But I've talked to her myself."
 
-MCR neutral "I don't think I really gave her a fair chance tonight… But we've hung out."
-
-MCR "She might just need some time. Like we all do."
+MCR neutral "I don't think I really gave her a fair chance tonight… but who knows? She might just need some time. Like we all do."
 
 MCR "Relationships are an endless cycle of opportunities to hurt each other."
 
@@ -2751,6 +2755,12 @@ MCR "I'm just telling you she might come to regret her first reaction. She might
 
 MCR happy "Trust me. We do all the time."
 
+"It hadn't occurred to me."
+
+"What if she does?"
+
+"What do I do then?"
+
 scene black with Dissolve(5.0)
 pause 0.1
 
@@ -2758,17 +2768,39 @@ pause 0.1
 
 $ pov = "anna"
 
-show pianocg at goodsize with Dissolve(5.0)
+show livingroom at truecenter:
+    zoom 0.4
+with Dissolve(5.0)
+
+"Federico isn't here."
+
+"Neither is the flashlight."
+
+"It makes sense that neither would be waiting here for you to pick up right where you left off."
+
+"You're disappointed and relieved that Federico isn't here, though."
+
+"Disappointed because you'd been looking for him and relieved because you're not truly ready to face him again just yet."
+
+"You look around a little more for the flashlight and notice an old piano in the corner."
+
+#play sound piano
+
+"You poke a key."
+
+"It reminds you."
+
+show pianocg at goodsize with Fade(1.0, 1.0, 1.0)
+
+play music federicopiano
 
 "You didn't fall in love with Fede the moment you met. Or even on your first date."
 
 "He slouched, and had a bad habit of staring at his feet."
 
-play music federicopiano
+"You were looking for a friend in the practice rooms at school later, and heard Fede singing, by pure chance."
 
-"A couple days later you were looking for a friend in the practice rooms at school and heard Fede singing, by pure chance."
-
-"He was belting out “Haven’t Met You Yet” without a care in the world and banging out chords on an out-of-tune piano."
+"He was belting out ‘Haven’t Met You Yet’ without a care in the world and banging out chords on an out-of-tune piano."
 
 "But it was beautiful. He sounded happy."
 
@@ -2809,6 +2841,10 @@ MCA "I thought he'd be with you."
 
 R "He left. He asked me to unlock the front door for him, and I did."
 
+"You hadn't imagined that it would have been you and Raimondo alone at the end like this."
+
+"At the end of this vigil."
+
 R "Sun isn't up yet. Guess he doesn't need the Lady's blessing."
 
 R "Makes you wonder what it was all for."
@@ -2821,15 +2857,21 @@ show rai neutral
 
 R "Sure."
 
-MCA "I have a feeling we'll be seeing each other again."
+MCA side sad2 "I have a feeling we'll be seeing each other again."
 
 R "Maybe."
+
+"Who knows anything anymore?"
 
 R "I don't think he went far. He wouldn't drive off without you."
 
 R "You should go."
 
-MCA "Goodbye then. And thank you."
+MCA "Goodbye then."
+
+"Is that it?"
+
+MCA "And thank you."
 
 R "See ya."
 
@@ -2843,7 +2885,7 @@ play sound chord1
 
 "The grand entryway."
 
-"Are you ready?"
+"Are you ready yet?"
 
 #"Scene bg window (Outside is brighter than inside.)"
 
@@ -2933,8 +2975,8 @@ MCA sad2 "I love you."
 #"Show fede direct [looking at her, same serious expression]"
 
 show fed concerned
-pause 1.0
-show fed neutral
+#pause 1.0
+#show fed neutral
 
 F "Love you too."
 
@@ -2966,6 +3008,8 @@ MCF "The sun's coming up."
 
 "You turn to see what he sees."
 
+window hide
+
 show dawn:
     linear 25.0 alpha(1.0)
 
@@ -2973,6 +3017,7 @@ pause (20.0)
 
 stop music fadeout 5.0
 stop ambient fadeout 5.0
+pause 5.0
 
 #"[Fade to black, credits]"
 
