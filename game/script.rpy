@@ -2957,6 +2957,7 @@ MCF "The sun's coming up."
 window hide
 
 $ pov = "blank"
+$ quick_menu = False
 
 show dawn:
     linear 25.0 alpha(1.0)
@@ -3016,10 +3017,11 @@ with dissolve
 
 pause 1
 
+scene black
+with Dissolve(5.0)
+
 stop music fadeout 5.0
 stop ambient fadeout 5.0
 pause 5.0
-
-#"[Fade to black, credits]"
 
 return
