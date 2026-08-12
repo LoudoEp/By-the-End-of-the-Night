@@ -33,8 +33,6 @@ define gui.about = _p("""Sprites and CGs by {a=https://bsky.app/profile/shirtofs
 
 Music by {a=https://joelurker.itch.io}Joe Lurker{/a}.
 
-Code for floating object provided by Rekion.
-
 Sound Effects
 
 Car journey part 2, out of town, 30mph, 50mph, 70mph, petrol engine, manual transmission by philipquintonsound -- https://freesound.org/s/820354/ -- License: Attribution 4.0. Cut and looped.

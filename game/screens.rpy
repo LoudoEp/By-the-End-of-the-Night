@@ -6,6 +6,12 @@ init offset = -1
 
 image texty = "gui/textbox1.png"
 
+init 101:
+    if renpy.variant("small"):
+        define credits_size = 80
+    else:
+        define credits_size = 50
+
 ################################################################################
 ## Styles
 ################################################################################
@@ -1523,7 +1529,6 @@ screen quick_menu():
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Hide") action HideInterface() 
             textbutton _("Menu") action ShowMenu()
-
 
 style window:
     variant "small"

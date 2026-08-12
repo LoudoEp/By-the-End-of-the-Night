@@ -10,16 +10,6 @@ init python:
 transform goodsize:                 #borrowed from Unagi
     xysize (1920, 1080)
 
-transform orb_anim:                 #borrowed from Rekion
-    xalign 0.5
-    yalign 0.5
-    parallel:
-        easein 1.5 yalign 0.425
-        block:
-            ease 3.0 yalign 0.575
-            ease 3.0 yalign 0.425
-            repeat
-
 ################################################################################
 
 ### VARIABLES ###
@@ -232,7 +222,7 @@ pause 1.0
 
 "You haven't met any of his friends from his hometown before. He doesn't talk about them much."
 
-"They exist in some vaguely defined ‘before’ or ‘elsewhere’ along with his parents and his Xbox."
+"They exist in some vaguely defined “before” or “elsewhere” along with his parents and his Xbox."
 
 "It's easy to forget, when you're surrounded by school, school, school, that there is an entire world
 outside of research paper deadlines and the campus mall."
@@ -456,7 +446,7 @@ play sound lightswitch
 
 show shed at goodsize
 
-"The light comes on soon enough."
+"With a click, I'm blinded by the light."
 
 #"And then with a click, I'm blinded by the light."
 
@@ -1304,23 +1294,9 @@ show wardrobe at truecenter with Dissolve(5.0):
 
 "Raimondo is right: the lack of sleep is catching up with you."
 
+"You're glad the exhibit exists, of course, but so much of it is text on placards."
+
 "{i}Women Through History{/i} threatens to bore the both of you into napping standing up."
-
-"There's only one flashlight between you and Federico, and you read faster than him."
-
-"He doesn't give any indication that he's finished reading, or even comment when you slow down for him. He floats behind you like a ghost or child."
-
-"It's not surprising that he is uninterested."
-
-"You're glad the exhibit exists, of course, but so much of it is text on placards, and the names and dates are scarcely in your mind before they're gone."
-
-"You stop to read at least one section of every display anyways."
-
-"It {i}is{/i} the women's exhibit, and one that Raimondo was so nonchalant about earlier, so you feel like you should."
-
-"For all the talk of Northern Italian peasants, however, there is no mention of Lady Giuditta."
-
-"Disappointing."
 
 scene black with dissolve
 pause 0.1
@@ -1330,31 +1306,25 @@ show chlight at truecenter:
     zoom 0.5
 with dissolve
 
-"You start recognizing names when it reaches the modern day."
+"You starts recognizing names when it reaches the modern day, but otherwise nothing sticks with you."
 
-MCA side neutral "That arts and crafts chain was the one in the news for fraud earlier this year, right Federico?"
+"There's only one flashlight between you and Federico, and you read faster than him."
 
-"…"
+"You slow the pace down, but you're not sure if he's actually reading."
 
-"Federico is gone."
+"You turn to check if Federico is done, but he's off in the other room looking at something in the dark. 
+Or pretending to."
 
-"Well, he wasn't having a great time."
+#show raimondo neutral
 
-#"You turn to check if Federico is done, but he's off in the other room looking at something in the dark.
-#Or pretending to."
-
-#"Show raimondo neutral"
-
-#"Raimondo hasn't been too interested in the exhibits. He's had a long time to familiarize himself with
-#them, especially this one."
+"Raimondo hasn't been too interested in the exhibits. He's had a long time to familiarize himself with
+them, especially this one."
 
 "Raimondo stares half-interestedly at a nearby portrait. He hasn't been too interested in this exhibit either, but that's not surprising given that he's had all the time to see everything here."
 
 "Especially since this one has been around for so long."
 
-#"There's a quiet between you."
-
-"It's just the two of you now."
+"There's a quiet between you."
 
 MCA side happy "Hey, Raimondo."
 
@@ -1373,26 +1343,6 @@ MCA concerned "You're just like Fede."
 show rai happy
 
 R "I'll take that as a compliment."
-
-pause 1.5
-
-show rai neutral
-
-MCA "Can I ask you something?"
-
-R "Shoot."
-
-MCA neutral "You and Fede were going to go somewhere later in the week?"
-
-R "Did you want to come with? Gotta warn you that the drinking ambiance in town isn't that much nicer than my room out here."
-
-MCA "No thank you. I just wanted to make sure you didn't feel put out by my being here tonight."
-
-R "Why would I be? The friend of my friend is my friend."
-
-"Right."
-
-MCA happy "Speaking of, how did you two meet?"
 
 show rai neutral
 
@@ -1419,8 +1369,6 @@ with dissolve
 
 F "I didn't know you used to play volleyball."
 
-"Floating in like a ghost or a child."
-
 MCA neutral "It was a long time ago."
 
 F "Why'd you stop?"
@@ -1433,9 +1381,7 @@ MCA "I don't know. Why does anyone stop, Federico?"
 
 scene black with dissolve
 
-#"You step into the next exhibit."
-
-"It's about time for the next exhibit."
+"You step into the next exhibit."
 
 #play sound small_door_open
 
@@ -1488,8 +1434,6 @@ MCA side "Can you imagine wearing something like that? Little bug pieces all ove
 
 "Still your eyes fix on the swirling pattern. Flowers, leaves, butterflies."
 
-#"{i}But they're pretty, aren't they?{/i}"
-
 show rai gag
 
 R "I think I'd rather get married in a suit."
@@ -1523,13 +1467,13 @@ R "That's history for you."
 
 MCA neutral "Where did Federico go?"
 
-#show rai mad
+show rai mad
 
 R "He's chilling out by the entrance to {i}Women Through History{/i}."
 
 MCA concerned "I'm not mad."
 
-#show rai neutral
+show rai neutral
 
 R "Didn't say you were."
 
@@ -1615,9 +1559,17 @@ scene black with dissolve
 
 "I close my eyes and wish."
 
+window hide
+
+$ pov = "blank"
+
 centered "That after everything I have to tell her tonight, she'll stay with me."
 
+$ pov = "fede"
+
 pause 5.0
+
+window show
 
 "Eventually we get to the point where even Rai's enthusiasm is flagging."
 
@@ -2743,9 +2695,9 @@ MCR "Has it?"
 
 MCF sad "I told you what happened."
 
-#MCR "Yeah. But I've talked to her myself."
+MCR "Yeah. But I've talked to her myself."
 
-MCR neutral "I don't think I really gave her a fair chance tonight… but who knows? She might just need some time. Like we all do."
+MCR neutral "I don't think I really gave her a fair chance tonight… But we've hung out."
 
 MCR "Relationships are an endless cycle of opportunities to hurt each other."
 
@@ -2754,12 +2706,6 @@ MCR "I'm not telling you you have to forgive her, if that's not what you want."
 MCR "I'm just telling you she might come to regret her first reaction. She might want to be forgiven."
 
 MCR happy "Trust me. We do all the time."
-
-"It hadn't occurred to me."
-
-"What if she does?"
-
-"What do I do then?"
 
 scene black with Dissolve(5.0)
 pause 0.1
@@ -2975,8 +2921,8 @@ MCA sad2 "I love you."
 #"Show fede direct [looking at her, same serious expression]"
 
 show fed concerned
-#pause 1.0
-#show fed neutral
+pause 1.0
+show fed neutral
 
 F "Love you too."
 
@@ -3010,10 +2956,65 @@ MCF "The sun's coming up."
 
 window hide
 
+$ pov = "blank"
+
 show dawn:
     linear 25.0 alpha(1.0)
 
-pause (20.0)
+#pause (20.0)
+
+$ renpy.pause(delay=5, hard=True)
+
+show text """{size=[credits_size]}
+Developers
+Joe Lurker and Loudo
+"""
+
+with dissolve
+pause 3
+hide text
+with dissolve
+
+pause 1
+
+show text """{size=[credits_size]}
+Sprites
+sikyu
+"""
+
+with dissolve
+pause 3
+hide text
+with dissolve
+
+pause 1
+
+show text """{size=[credits_size]}
+Photography
+Kerche and Nathaniel Noble
+Pixabay
+Pexels
+Unsplash
+"""
+
+with dissolve
+pause 3
+hide text
+with dissolve
+
+pause 1
+
+show text """{size=[credits_size]}
+Music
+Joe Lurker
+"""
+
+with dissolve
+pause 3
+hide text
+with dissolve
+
+pause 1
 
 stop music fadeout 5.0
 stop ambient fadeout 5.0
